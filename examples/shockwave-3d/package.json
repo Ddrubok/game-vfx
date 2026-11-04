@@ -1,0 +1,16 @@
+{
+  "name": "game-vfx-shockwave-3d-example",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node verify.mjs"
+  },
+  "dependencies": { "three": "0.187.0" },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "playwright": "1.62.1",
+    "pngjs": "7.0.0"
+  }
+}

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Game VFX · 충격파 예제</title>
+<style>
+  :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+  body { margin: 0; background: #f3f1ec; color: #242a30; }
+  main { max-width: 760px; margin: 32px auto; padding: 0 20px 32px; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  p { line-height: 1.6; }
+  .stage { background: #15212c; border: 1px solid #87909a; border-radius: 12px; margin: 20px 0; }
+  canvas { display: block; width: 100%; max-width: 512px; height: auto; margin: auto; }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin: 16px 0; }
+  label { display: inline-flex; align-items: center; gap: 8px; }
+  button, select, input { font: inherit; }
+  button, select, input[type=number] { padding: 8px 12px; background: #fff; color: #242a30; border: 1px solid #6c7680; border-radius: 6px; }
+  button { cursor: pointer; }
+  button:hover { background: #e0edea; }
+  input[type=range] { width: min(46vw, 300px); }
+  input[type=number] { width: 80px; }
+  input[type=color] { width: 44px; height: 34px; border: 0; padding: 0; }
+  :focus-visible { outline: 3px solid #147e8f; outline-offset: 3px; }
+  small, .note { color: #4e5962; }
+  #status { min-height: 1.6em; }
+</style>
+<main>
+  <small>GAME VFX / EDITABLE CANVAS EXAMPLE</small>
+  <h1>픽셀 격자 없는 충격파</h1>
+  <p>부드러운 고리와 빛, 흩어지는 입자로 만든 0.8초 효과입니다. 시간을 움직여 각 장면을 확인하거나 한 번 재생해 보세요.</p>
+  <div class="stage" id="stage"><canvas id="preview" width="512" height="512" aria-label="충격파 미리보기">Canvas를 지원하는 브라우저가 필요합니다.</canvas></div>
+  <div class="controls">
+    <button id="replay">다시 재생</button><button id="pause">멈춤</button>
+    <label>시간 <input id="time" type="range" min="0" max="0.8" step="0.001" value="0.18"></label>
+    <output id="timeValue">0.180 s</output>
+  </div>
+  <div class="controls">
+    <label>색상 <input id="color" type="color" value="#29b8ad"></label>
+    <label>시드 <input id="seed" type="number" min="0" max="99999" step="1" value="23"></label>
+    <label>배경 <select id="background"><option value="#15212c">어두움</option><option value="#f5f2eb">밝음</option><option value="checker">투명 확인</option></select></label>
+    <label><input id="reduced" type="checkbox">움직임 줄이기</label>
+  </div>
+  <div class="controls">
+    <button id="frame">현재 장면 PNG</button>
+    <button id="sheet">전체 시트 PNG</button>
+    <button id="metadata">시트 정보 JSON</button>
+  </div>
+  <p class="note">PNG에는 배경이 들어가지 않습니다. 시트는 512 × 512 크기 20장을 25fps로 재생하도록 만듭니다. 같은 설정에서 PNG와 JSON을 각각 저장하세요. JSON은 이 예제의 형식이므로 게임 엔진에 맞는 가져오기 처리가 필요합니다.</p>
+  <p id="status" role="status" aria-live="polite"></p>
+</main>
+<script>
+"use strict";
+const SIZE = 512, DURATION = 0.8, FPS = 25, COUNT = 20, COLUMNS = 5;
+const el = id => document.getElementById(id);
+const canvas = el("preview"), ctx = canvas.getContext("2d");
+const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
+el("reduced").checked = motionPreference.matches;
+let time = 0.18, raf = 0;
+
+function options() {
+  return { color: el("color").value, seed: Math.max(0, Math.min(99999, Math.trunc(Number(el("seed").value) || 0))), reducedMotion: el("reduced").checked };
+}
+function randomSource(seed) {
+  let n = seed >>> 0;
+  return () => { n = (Math.imul(n, 1664525) + 1013904223) >>> 0; return n / 4294967296; };
+}
+function rgba(hex, alpha) {
+  const n = parseInt(hex.slice(1), 16);
+  return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${alpha})`;
+}
+
+// All motion is a function of absolute seconds and seed; no previous frame is needed.
+// Caller owns clearing and placement. The effect's local pivot is (256, 256).
+function drawImpact(c, seconds, o) {
+  if (!Number.isFinite(seconds) || seconds <= 0 || seconds >= DURATION) return;
+  const p = seconds / DURATION;
+  const fade = Math.pow(1 - p, 1.7) * Math.min(1, p / 0.055);
+  c.save();
+  c.translate(SIZE / 2, SIZE / 2);
+  c.globalCompositeOperation = "source-over";
+  if (o.reducedMotion) {
+    c.globalAlpha = fade;
+    c.strokeStyle = o.color;
+    c.lineWidth = 4;
+    c.beginPath(); c.arc(0, 0, 26, 0, Math.PI * 2); c.stroke();
+    c.restore(); return;
+  }
+  const radius = 12 + 174 * (1 - Math.pow(1 - p, 3));
+  const glow = c.createRadialGradient(0, 0, 0, 0, 0, radius * 1.13);
+  glow.addColorStop(0, rgba(o.color, 0.25 * fade));
+  glow.addColorStop(0.58, rgba(o.color, 0.09 * fade));
+  glow.addColorStop(1, rgba(o.color, 0));
+  c.fillStyle = glow;
+  c.beginPath(); c.arc(0, 0, radius * 1.13, 0, Math.PI * 2); c.fill();
+  c.globalAlpha = fade;
+  c.strokeStyle = o.color;
+  c.lineWidth = 1 + 8 * (1 - p);
+  c.beginPath(); c.arc(0, 0, radius, 0, Math.PI * 2); c.stroke();
+  c.globalAlpha = fade * 0.4;
+  c.lineWidth = 1.5;
+  c.beginPath(); c.arc(0, 0, radius * 0.84, 0, Math.PI * 2); c.stroke();
+  const random = randomSource(o.seed);
+  c.lineCap = "round";
+  for (let i = 0; i < 38; i++) {
+    const angle = (i + random() * 0.65) / 38 * Math.PI * 2;
+    const distance = 18 + (88 + random() * 105) * Math.pow(p, 0.66);
+    const length = (4 + random() * 19) * (1 - p);
+    c.lineWidth = 0.7 + random() * 2.2;
+    c.globalAlpha = fade * (0.45 + random() * 0.55);
+    c.beginPath();
+    c.moveTo(Math.cos(angle) * distance, Math.sin(angle) * distance);
+    c.lineTo(Math.cos(angle) * (distance + length), Math.sin(angle) * (distance + length));
+    c.stroke();
+  }
+  c.restore();
+}
+function frameAt(seconds, o = options()) {
+  const frame = document.createElement("canvas");
+  frame.width = frame.height = SIZE;
+  drawImpact(frame.getContext("2d"), seconds, o);
+  return frame;
+}
+function render() {
+  ctx.clearRect(0, 0, SIZE, SIZE);
+  drawImpact(ctx, time, options());
+  el("time").value = time;
+  el("timeValue").textContent = `${time.toFixed(3)} s`;
+}
+function stop() { cancelAnimationFrame(raf); raf = 0; }
+function setTime(seconds) {
+  stop(); time = Math.max(0, Math.min(DURATION, Number(seconds) || 0)); render();
+}
+function play() {
+  stop(); time = 0; render();
+  const start = performance.now();
+  const tick = now => {
+    time = Math.min(DURATION, (now - start) / 1000);
+    render();
+    raf = time < DURATION ? requestAnimationFrame(tick) : 0;
+  };
+  raf = requestAnimationFrame(tick);
+}
+function sheetMetadata(o = options()) {
+  return {
+    format: "game-vfx-sheet-v1", effect: "smooth-impact", width: COLUMNS * SIZE,
+    height: Math.ceil(COUNT / COLUMNS) * SIZE, fps: FPS, durationSeconds: DURATION,
+    loop: false, blend: "source-over", pivotPixels: { x: SIZE / 2, y: SIZE / 2 }, options: o,
+    frames: Array.from({ length: COUNT }, (_, i) => ({
+      index: i, x: (i % COLUMNS) * SIZE, y: Math.floor(i / COLUMNS) * SIZE,
+      width: SIZE, height: SIZE, timeSeconds: i / FPS, durationMs: 1000 / FPS
+    }))
+  };
+}
+function makeSheet(o = options()) {
+  const metadata = sheetMetadata(o), sheet = document.createElement("canvas");
+  sheet.width = metadata.width; sheet.height = metadata.height;
+  const sc = sheet.getContext("2d");
+  for (const f of metadata.frames) {
+    // Render at the same local origin as the preview, then pack without rescaling.
+    sc.drawImage(frameAt(f.timeSeconds, o), f.x, f.y);
+  }
+  return { canvas: sheet, metadata };
+}
+function prefix(o) { return `impact-${o.color.slice(1)}-seed${o.seed}${o.reducedMotion ? "-reduced" : ""}`; }
+function download(blob, name) {
+  const url = URL.createObjectURL(blob), link = document.createElement("a");
+  link.href = url; link.download = name; document.body.append(link); link.click(); link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+  el("status").textContent = `${name} 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인하세요.`;
+}
+function png(target, name) {
+  target.toBlob(blob => {
+    if (blob) download(blob, name);
+    else el("status").textContent = "PNG를 만들지 못했습니다.";
+  }, "image/png");
+}
+el("replay").addEventListener("click", play);
+el("pause").addEventListener("click", stop);
+el("time").addEventListener("input", event => setTime(event.target.value));
+for (const id of ["color", "seed", "reduced"]) el(id).addEventListener("input", render);
+el("background").addEventListener("change", event => {
+  el("stage").style.background = event.target.value === "checker"
+    ? "repeating-conic-gradient(#e1e4e6 0% 25%, #fff 0% 50%) 0 0 / 24px 24px" : event.target.value;
+});
+el("frame").addEventListener("click", () => {
+  const o = options(); png(frameAt(time, o), `${prefix(o)}-${Math.round(time * 1000)}ms.png`);
+});
+el("sheet").addEventListener("click", () => {
+  const o = options(); png(makeSheet(o).canvas, `${prefix(o)}-sheet.png`);
+});
+el("metadata").addEventListener("click", () => {
+  const o = options(); download(new Blob([JSON.stringify(sheetMetadata(o), null, 2) + "\n"], { type: "application/json" }), `${prefix(o)}-sheet.json`);
+});
+document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); });
+window.addEventListener("pagehide", stop);
+window.vfx = { drawImpact, frameAt, makeSheet, sheetMetadata, setTime, options };
+render();
+</script>
+</html>

@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-04T07:47:24.206Z",
+  "browser": "156.0.8078.80",
+  "scope": "Bundled Canvas example only; automated runtime and export checks, not subjective motion evaluation or game integration",
+  "checks": [
+    "deterministic",
+    "seedChanges",
+    "colorChanges",
+    "reducedChanges",
+    "endpointsEmpty",
+    "peakVisible",
+    "No nontransparent pixels touch frame edges at 21 sampled times",
+    "Transparent and partially transparent pixels exist",
+    "Background selector does not bake background into the effect",
+    "frame.png download completed",
+    "sheet.png download completed",
+    "sheet.json download completed",
+    "20 fixed-rate frame durations sum to the declared 0.8 seconds",
+    "Metadata records actual custom format and center pivot",
+    "Saved PNG dimensions match metadata",
+    "All 20 saved sheet frames match individually exported PNG frames pixel-for-pixel",
+    "Playback advances with elapsed time",
+    "Pause stops advancement",
+    "One-shot reaches its end and clears",
+    "Replay restarts a completed effect",
+    "Reduced motion preference is honored on initial load",
+    "390px viewport has no document horizontal overflow",
+    "No browser JavaScript errors"
+  ],
+  "stats": {
+    "deterministic": true,
+    "seedChanges": true,
+    "colorChanges": true,
+    "reducedChanges": true,
+    "endpointsEmpty": true,
+    "peakVisible": true,
+    "edge": 0,
+    "partial": 43020,
+    "transparent": 219124
+  },
+  "exportCheck": {
+    "width": 2560,
+    "height": 2048,
+    "matching": 20,
+    "biggestDifference": 0,
+    "alphaDifference": 0,
+    "premultipliedDifference": 0,
+    "mismatches": []
+  },
+  "errors": []
+}

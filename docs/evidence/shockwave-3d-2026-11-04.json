@@ -1,0 +1,304 @@
+{
+  "date": "2026-11-04T14:46:28.148Z",
+  "browser": "156.0.8078.80",
+  "environment": {
+    "threeRevision": "187",
+    "time": 0.42,
+    "running": false,
+    "destroyed": false,
+    "options": {
+      "color": "#69e5cd",
+      "radius": 3.8,
+      "duration": 1.6,
+      "count": 1,
+      "reducedMotion": false
+    },
+    "instances": 1,
+    "children": 1,
+    "states": [
+      {
+        "visible": true,
+        "disposed": false,
+        "lastTime": 0.42,
+        "duration": 1.6,
+        "seed": 23,
+        "reducedMotion": false,
+        "particleCount": 64
+      }
+    ],
+    "memory": {
+      "geometries": 10,
+      "textures": 1
+    },
+    "programs": 6,
+    "render": {
+      "frame": 3,
+      "calls": 13,
+      "triangles": 9252,
+      "points": 0,
+      "lines": 94
+    },
+    "camera": [
+      7.803648176295686,
+      9.146820375466476,
+      9.264817558097313
+    ],
+    "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009A60) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+  },
+  "checks": [
+    "Three.js 187 scene initializes in a WebGL2 browser",
+    "Seeking returns to identical pixels at the same time and seed",
+    "The effect changes rendered pixels",
+    "Before onset, the scene matches the no-effect baseline",
+    "After the one-shot, no effect pixels remain",
+    "Side view changes camera and projected pixels",
+    "Front pillar occludes all effect pixels in its sampled interior",
+    "Removing the pillar reveals effect pixels at those same positions",
+    "Top view changes the actual 3D camera position",
+    "Six separate effect owners render simultaneously",
+    "Six-effect draw issues triangles",
+    "20 clear/recreate cycles leave only one requested owner",
+    "Tracked geometry and texture counts do not grow across those cycles",
+    "Shader program count does not grow across those cycles",
+    "Clear removes effect owners from the scene",
+    "Replay recreates a cleared effect and advances time",
+    "Pause holds the presentation time",
+    "Playback stops at the configured duration",
+    "Reduced motion retains a marker without particles",
+    "Pointer drag rotates the camera",
+    "Keyboard controls rotate the camera",
+    "UI exports a readable PNG of the actual canvas",
+    "390px layout has no document horizontal overflow",
+    "OS reduced-motion preference is honored on entry",
+    "Explicit teardown marks the renderer destroyed and removes effects",
+    "A fresh page initializes again after teardown",
+    "No HTTP requests are needed by the offline HTML",
+    "No browser JavaScript or shader errors were logged"
+  ],
+  "occlusion": {
+    "maskPixels": 13228,
+    "alteredBehindBlock": 0,
+    "revealed": 6658
+  },
+  "repeatedCycles": {
+    "count": 20,
+    "before": {
+      "threeRevision": "187",
+      "time": 0.42,
+      "running": false,
+      "destroyed": false,
+      "options": {
+        "color": "#69e5cd",
+        "radius": 3.8,
+        "duration": 1.6,
+        "count": 1,
+        "reducedMotion": false
+      },
+      "instances": 1,
+      "children": 1,
+      "states": [
+        {
+          "visible": true,
+          "disposed": false,
+          "lastTime": 0.42,
+          "duration": 1.6,
+          "seed": 23,
+          "reducedMotion": false,
+          "particleCount": 64
+        }
+      ],
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "programs": 6,
+      "render": {
+        "frame": 25,
+        "calls": 13,
+        "triangles": 9252,
+        "points": 0,
+        "lines": 94
+      },
+      "camera": [
+        7.803648176295686,
+        9.146820375466476,
+        9.264817558097313
+      ],
+      "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009A60) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "after": {
+      "threeRevision": "187",
+      "time": 0.42,
+      "running": false,
+      "destroyed": false,
+      "options": {
+        "color": "#69e5cd",
+        "radius": 3.8,
+        "duration": 1.6,
+        "count": 1,
+        "reducedMotion": false
+      },
+      "instances": 1,
+      "children": 1,
+      "states": [
+        {
+          "visible": true,
+          "disposed": false,
+          "lastTime": 0.42,
+          "duration": 1.6,
+          "seed": 23,
+          "reducedMotion": false,
+          "particleCount": 64
+        }
+      ],
+      "memory": {
+        "geometries": 10,
+        "textures": 1
+      },
+      "programs": 6,
+      "render": {
+        "frame": 125,
+        "calls": 13,
+        "triangles": 9252,
+        "points": 0,
+        "lines": 94
+      },
+      "camera": [
+        7.803648176295686,
+        9.146820375466476,
+        9.264817558097313
+      ],
+      "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009A60) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    }
+  },
+  "sixEffects": {
+    "threeRevision": "187",
+    "time": 0.42,
+    "running": false,
+    "destroyed": false,
+    "options": {
+      "color": "#69e5cd",
+      "radius": 3.8,
+      "duration": 1.6,
+      "count": 6,
+      "reducedMotion": false
+    },
+    "instances": 6,
+    "children": 6,
+    "states": [
+      {
+        "visible": true,
+        "disposed": false,
+        "lastTime": 0.42,
+        "duration": 1.6,
+        "seed": 23,
+        "reducedMotion": false,
+        "particleCount": 64
+      },
+      {
+        "visible": true,
+        "disposed": false,
+        "lastTime": 0.42,
+        "duration": 1.6,
+        "seed": 70,
+        "reducedMotion": false,
+        "particleCount": 64
+      },
+      {
+        "visible": true,
+        "disposed": false,
+        "lastTime": 0.42,
+        "duration": 1.6,
+        "seed": 117,
+        "reducedMotion": false,
+        "particleCount": 64
+      },
+      {
+        "visible": true,
+        "disposed": false,
+        "lastTime": 0.42,
+        "duration": 1.6,
+        "seed": 164,
+        "reducedMotion": false,
+        "particleCount": 64
+      },
+      {
+        "visible": true,
+        "disposed": false,
+        "lastTime": 0.42,
+        "duration": 1.6,
+        "seed": 211,
+        "reducedMotion": false,
+        "particleCount": 64
+      },
+      {
+        "visible": true,
+        "disposed": false,
+        "lastTime": 0.42,
+        "duration": 1.6,
+        "seed": 258,
+        "reducedMotion": false,
+        "particleCount": 64
+      }
+    ],
+    "memory": {
+      "geometries": 10,
+      "textures": 1
+    },
+    "programs": 6,
+    "render": {
+      "frame": 23,
+      "calls": 33,
+      "triangles": 52452,
+      "points": 0,
+      "lines": 94
+    },
+    "camera": [
+      7.803648176295686,
+      9.146820375466476,
+      9.264817558097313
+    ],
+    "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009A60) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+  },
+  "frames": [
+    {
+      "t": 0.06,
+      "name": "frame-60ms.png"
+    },
+    {
+      "t": 0.18,
+      "name": "frame-180ms.png"
+    },
+    {
+      "t": 0.42,
+      "name": "frame-420ms.png"
+    },
+    {
+      "t": 0.7,
+      "name": "frame-700ms.png"
+    },
+    {
+      "t": 1.05,
+      "name": "frame-1050ms.png"
+    },
+    {
+      "t": 1.5,
+      "name": "frame-1500ms.png"
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "hashes": {
+    "shockwave.js": "95620522bc7e860446a35d5c22d854e28793ed5eb221698de1af1793c212b65f",
+    "app.js": "b98ebda2277024bd7bcb90a4bf45a3b5255692556367b465c1f54ea45248635a",
+    "template.html": "b717b506a0dd483511d8e5421b824473d74488f220de217a1cdd3c2fb190c1b4",
+    "shockwave-3d.html": "d7dcd74c3213f05072517385637fbf774ce2acb5d944519cf881497b7df1e1c4",
+    "package-lock.json": "b909554586ed0135bb21780a145d2d47e4916e16745217c3754e2010effbb589"
+  },
+  "limits": [
+    "No human real-time motion rating",
+    "No Unity/Godot/Flutter integration",
+    "No real phone benchmark",
+    "Resource counters are not a full GPU/heap leak audit"
+  ]
+}

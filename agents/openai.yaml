@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game VFX"
+  short_description: "Create game effects that match art direction and play"
+  default_prompt: "Use $game-vfx to turn this game's visual references or bettermakegame VFX brief into a matching effect, then verify its appearance and requested integration."
