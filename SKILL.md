@@ -8,7 +8,7 @@ description: >-
   VFX, particles, shockwaves, or sprite-sheet export. Not a general game
   generator, whole-game polish audit, or cinematic video production skill.
 metadata:
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # Game VFX
@@ -37,13 +37,13 @@ Locate a named companion through the host's available skills when needed. Do not
 
 Read [implementation-and-export.md](references/implementation-and-export.md) for the selected renderer or export route; ignore unrelated routes.
 
-For gameplay/event integration, read [event-integration.md](references/event-integration.md) only for the affected paths. Preserve pending/confirmed meaning, event ordering, duplicate protection and owner/round cleanup without changing authority or clocks. Carry any companion finding's original judgment and evidence limits; a synthetic event test is not real network or rendered-game verification.
-
 - Prefer existing engine particles, animation, materials, trails, and shaders when the effect needs world interaction, attachment, lighting, or per-instance control.
 - Use a sprite sheet or transparent frames when a baked 2D animation fits. A baked glow does not preserve arbitrary additive blending or scene lighting.
 - For a self-contained 2D prototype, copy [canvas-impact.html](assets/canvas-impact.html) into the task's output folder and adapt it there. It opens without a build, previews one smooth shockwave, and exports a transparent frame or PNG sheet plus separate JSON metadata. It is not a 3D renderer or a production effects framework.
 - When a painted texture or other bitmap asset is needed, use an available image-generation/editing workflow or licensed project asset. Verify that the tool exists; do not claim a texture was generated if only a prompt was written. A still image does not establish animation coherence.
 - Check actual editor/CLI/image-viewing capabilities. If an editor or renderer is unavailable, deliver the source or a precise unapplied specification appropriate to the request and identify the missing verification. Do not invent successful imports, API calls, or tool names.
+
+For engine identification or an importer adapter, use the selected route in [engine-adapters.md](references/engine-adapters.md). For gameplay/event integration, read [event-integration.md](references/event-integration.md) only for the affected paths. Preserve pending/confirmed meaning, event ordering, duplicate protection and owner/round cleanup without changing authority or clocks. Carry any companion finding's original judgment and evidence limits; a synthetic event test is not real network or rendered-game verification.
 
 Do not add an engine, package, external service, or general VFX framework merely to produce a small effect. Check version-specific APIs in installed code or official documentation when uncertain.
 

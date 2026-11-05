@@ -1,6 +1,6 @@
 # Game VFX
 
-[English](README.md) | [한국어](README.ko.md) · **v0.3.0**
+[English](README.md) | [한국어](README.ko.md) · **v0.3.1**
 
 An AI agent skill for making game effects that fit the project's art direction and actual events. It covers smooth 2D effects, particles, trails, shaders, and 3D effects using the project's renderer.
 
@@ -15,9 +15,10 @@ Download or clone the repository, then open these HTML files in a suitable brows
 | Example | What it does |
 | --- | --- |
 | [2D impact](assets/canvas-impact.html) | Preview a smooth ring and sparks; change color/seed; save a transparent PNG or sheet plus custom JSON. |
+| [Event replay](examples/event-replay/index.html) | Local event ownership, corrections, completion and round cleanup; requires the local server described in its README. |
 | [3D shockwave](examples/shockwave-3d/shockwave-3d.html) | Rotate the camera around a hemisphere, rings, and particles; inspect occlusion; show 1, 3, or 6 effects. |
 
-Both run offline. The 3D example requires WebGL2. Its PNG button saves the current camera view, not a 3D model or a transparent effect asset. Read its [source and build guide](examples/shockwave-3d/README.md) to modify it.
+The 2D and 3D standalone examples run offline; the event replay uses a local HTTP server. The 3D example requires WebGL2. Its PNG button saves the current camera view, not a 3D model or a transparent effect asset. Read its [source and build guide](examples/shockwave-3d/README.md) to modify it.
 
 ## Fit the game's style
 
@@ -64,20 +65,27 @@ Report differences and evidence without modifying the game.
 
 ## What has been checked
 
-- The 2D example passed 23 automated browser/export checks on 2026-11-04. Its saved sheet frames matched individually exported PNG frames in that environment.
+- The updated 2D export passed 25 browser/export checks on 2026-11-05, including a visible first frame, unchanged 0.8-second playback duration, and all 20 saved frames matching individual exports. The final fade sample is fully transparent in this 8-bit export. The earlier 23-check run remains historical.
 - The 3D example passed 28 automated checks, including a controlled occlusion comparison, playback, six simultaneous effects, and repeated creation/cleanup. Its tracked resource counts did not grow during the sampled cycles.
 - Final static captures were opened for visual inspection. The linked skill instructions passed metadata, relative-link, and whitespace checks.
 
 These results are limited to the recorded examples and conditions. They do not prove subjective motion quality, general leak freedom, mobile performance, or Unity/Godot/Unreal/Flutter integration. **Independent end-to-end evaluation of the new style handoff is NOT RUN.** See the [validation record](docs/validation.md) for evidence and limits.
 
+## Version 0.3.1
+
+Fixes the blank first exported frame by separating playback time from interval-midpoint sampling. Adds an optional event adapter and rendered replay, a portable Canvas checker, engine-identification/import guidance, and a Godot reference snippet marked **NOT RUN**. Finished effects stay closed even on a higher revision; callbacks carry owner generation. Source-over blending and the single shockwave style remain deliberate example limits.
+
+The local event adapter passed 13 Node tests and 11 rendered-browser checks. The corrected shared bettermakegame fixture passed 13 tests; the previous nine-test evidence is preserved with its missed regressions disclosed. The engine snippet, real network/device runs and skill-handoff behavior are not verified by these passes. See the [repair record](docs/feedback-repair-2026-11-05.md), [Canvas checker](examples/canvas-verification/README.md), and [event replay](examples/event-replay/README.md).
+
 ## Version 0.3.0
 
-Version 0.3.0 adds [event integration guidance](references/event-integration.md): pending versus confirmed cues, duplicate/reordered events, corrections and owner/round cleanup. Findings from kill-game-slop retain their judgment, scope and evidence limits through the bettermakegame brief. A local effect does not require all three skills. See the [update record](docs/update-2026-11-05.md) for checks and remaining evaluations; the earlier example results do not validate the new instructions.
+Version 0.3.0 adds [event integration guidance](references/event-integration.md): pending versus confirmed cues, duplicate/reordered events, corrections and owner/round cleanup. Findings from kill-game-slop may arrive directly or through a bettermakegame brief; both routes retain judgment, scope and evidence limits. A local effect does not require all three skills. See the [update record](docs/update-2026-11-05.md) for checks and remaining evaluations; the earlier example results do not validate the new instructions.
 
 ## Files and license
 
 - [SKILL.md](SKILL.md): task scope, workflow, and evidence rules.
 - [style-and-handoff.md](references/style-and-handoff.md): visual direction and brief/result exchange.
+- [engine-adapters.md](references/engine-adapters.md): engine identification, optional examples and unverified Godot import snippet.
 - [event-integration.md](references/event-integration.md): state truth, ordering, lifetime and bounded integration checks.
 - [implementation-and-export.md](references/implementation-and-export.md): renderer selection and export details.
 - [visual-validation.md](references/visual-validation.md): visual, motion, integration, and performance checks.

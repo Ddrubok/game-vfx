@@ -1,7 +1,7 @@
 {
   "date": "2026-11-05",
   "base_commit": "1c8f1d4f057308e4ddf8df1939bfe0e2416cd218",
-  "revision": "uncommitted working-tree candidate",
+  "revision": "Historical pre-publication snapshot; published in 97e8860667608f9094d7a3b3cca5654f2b9712ad",
   "normalization": "UTF-8 text; CRLF/CR normalized to LF; SHA-256",
   "runtime_files": {
     "agents/openai.yaml": "8aa5b6795174a7abde67470a57723bedad89d98adce8922d04c11c0ee9e48b71",
@@ -21,6 +21,8 @@
     "node": "v22.18.0",
     "date": "2026-11-05",
     "passed": 9,
-    "scope": "synthetic local trusted-event adapter and toy simulation; not skill-behavior evaluation"
-  }
+    "scope": "synthetic local trusted-event adapter and toy simulation; not skill-behavior evaluation",
+    "known_limit": "Historical nine-test run missed higher-revision resurrection after finish and lacked a fault-sensitive world-write check. Superseded by the repair record; not erased or reclassified as a current pass."
+  },
+  "published_commit": "97e8860667608f9094d7a3b3cca5654f2b9712ad"
 }

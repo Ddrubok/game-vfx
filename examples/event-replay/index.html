@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Event lifetime replay</title>
+<style>
+body { font: 16px/1.5 system-ui; max-width: 760px; margin: 24px auto; padding: 0 16px; }
+canvas { width: 100%; max-width: 512px; background: #15212c; display: block; }
+button { margin: 8px 8px 8px 0; padding: 10px; font: inherit; }
+output { display: block; } iframe { display: none; }
+</style>
+<h1>Event lifetime replay</h1>
+<p>Local synthetic input. Amber is provisional; teal is confirmed. A correction moves a live cue without restarting it. A finished cue stays finished.</p>
+<canvas id="scene" width="512" height="512" aria-label="Event effect"></canvas>
+<button id="replay">Replay pending → confirmed → correction</button>
+<button id="late">Late correction</button><button id="round">Next round</button>
+<button id="dispose">Dispose owner</button>
+<output id="status" aria-live="polite"></output>
+<iframe id="renderer" src="../../assets/canvas-impact.html" title="Shared effect renderer"></iframe>
+<script type="module">
+import { ImpactEvents } from '../../assets/event-impact.mjs';
+const iframe = document.querySelector('#renderer');
+if (!iframe.contentWindow.vfx) await new Promise(resolve => iframe.addEventListener('load', resolve, { once: true }));
+const vfx = iframe.contentWindow.vfx, canvas = document.querySelector('#scene'), ctx = canvas.getContext('2d');
+let owner = new ImpactEvents(), generation = 1, raf = 0;
+const send = (changes = {}) => owner.receive({ id: 'hit', round: owner.round,
+  revision: 1, state: 'pending', point: { x: 256, y: 256 }, ...changes });
+function render() {
+  ctx.clearRect(0, 0, 512, 512);
+  for (const cue of owner.snapshot()) {
+    const image = vfx.frameAt(cue.age, { color: cue.kind === 'preview' ? '#d89032' : '#29b8ad', seed: 23,
+      reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches });
+    ctx.drawImage(image, cue.point.x - 256, cue.point.y - 256);
+  }
+  document.querySelector('#status').textContent = `${owner.round}; active ${owner.active.size}; bursts ${owner.bursts}; owner ${owner.closed ? 'disposed' : 'live'}`;
+}
+function stop() { cancelAnimationFrame(raf); raf = 0; }
+function reset() { stop(); owner.dispose(); owner = new ImpactEvents({ round: `round-${++generation}` }); render(); }
+function replay() {
+  reset(); send(); let last = performance.now(), confirmed = false, corrected = false;
+  function tick(now) {
+    owner.advance((now - last) / 1000); last = now;
+    if (owner.clock >= .15 && !confirmed) { send({ revision: 2, state: 'confirmed' }); confirmed = true; }
+    if (owner.clock >= .4 && !corrected) { send({ revision: 3, state: 'confirmed', point: { x: 290, y: 256 } }); corrected = true; }
+    render(); if (owner.clock < .8) raf = requestAnimationFrame(tick);
+  }
+  raf = requestAnimationFrame(tick);
+}
+document.querySelector('#replay').onclick = replay;
+document.querySelector('#late').onclick = () => { send({ revision: 99, state: 'confirmed' }); render(); };
+document.querySelector('#round').onclick = () => { stop(); owner.nextRound(`round-${++generation}`); render(); };
+document.querySelector('#dispose').onclick = () => { stop(); owner.dispose(); render(); };
+window.addEventListener('pagehide', () => { stop(); owner.dispose(); });
+window.demo = { reset, send, render, step: seconds => { owner.advance(seconds); render(); }, get owner() { return owner; } };
+render();
+</script>
+</html>

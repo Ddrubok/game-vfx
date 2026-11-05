@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "97e8860667608f9094d7a3b3cca5654f2b9712ad",
+  "identity": "Content snapshot identified by SHA-256; capture is after the base commit, not a claim of agent evaluation at that commit.",
+  "normalization": "UTF-8 text CRLF/CR to LF; SHA-256",
+  "runtime_files": {
+    "agents/openai.yaml": "8aa5b6795174a7abde67470a57723bedad89d98adce8922d04c11c0ee9e48b71",
+    "assets/canvas-impact.html": "ed84b40da8a5138cc49ecae55152ecb4c3f9a4a15f05b883af386af003ecd255",
+    "assets/event-impact.mjs": "64dc8a4fe9c572480ca60dbc36b4f61159ab3ec22d36230ae5999c807787b2ba",
+    "LICENSE": "371b25f44c1f66b39cf7fdfeca50c7a5dfe92ccfa24f72b9eb5ee634064e86f1",
+    "references/engine-adapters.md": "12b95036c0eff4e92d61c6a842762f21123a46e391ada6316c429015e3ac94ed",
+    "references/event-integration.md": "9fde2534dedeb964e9ea4764e3bb6fb8c47f7c969e055b2565293346ed763472",
+    "references/implementation-and-export.md": "b221614e2bf443c5f4acf3a0d9ef264004203caf271c70b76698d0076d53de1c",
+    "references/style-and-handoff.md": "90f955b32150c0996e8e207a3a789544351401d5b2d019b1414dc366f1592ab8",
+    "references/visual-validation.md": "71cd5fe29355dbee45a1b080392e09ff6698b399bfaa4ffec283c1ff2e905f3e",
+    "SKILL.md": "24a14ef8666e20b1bafb84dbede3740f6bc197278f0dff3b0580960216d1933e"
+  },
+  "shared_fixture_evidence": {
+    "repository": "Ddrubok/bettermakegame",
+    "commit": "fd3c15df5cbbd9226003233e573af67cf8da0c85",
+    "source_sha256_lf": "afa4f590f07b729934f55d106278c480260a7065b674895850e543796022df18",
+    "tests_sha256_lf": "a501a4dec534f5ae06f536dc814c3a9ff66666ece263896dcc0962502a2cf3a1",
+    "node": "v22.18.0",
+    "passed": 13,
+    "scope": "Synthetic trusted-event adapter and toy world; not agent, network or renderer verification"
+  },
+  "maintainer_sources": {
+    "examples/canvas-verification/README.md": "61e22cfe6e9a75bca0a98d1b39310221db513d9b1149220077cbb31d726786af",
+    "examples/canvas-verification/verify.mjs": "974dedabf28dd338e4384285b30e32dc07ae3eeee5085c78525edcd9bb520f6b",
+    "examples/event-replay/events.test.mjs": "adcf78fe92874c2e0d435530d7620b58e30045bf75ee79183b26f5f70c5e20d7",
+    "examples/event-replay/index.html": "7470fa1ade91fb1a26fc9441a908941f416c60e563a475191ac05fc323dc7d19",
+    "examples/event-replay/README.md": "8bdc215aef63f7fb7b79789e9eb0b2d4bd18f5d52cc2ab0e582d99589ecd8164",
+    "examples/event-replay/verify.mjs": "479f71f66a58b3cb64efb14355a53376c337822a1e8b97ef05b167c732899547"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-05",
+  "status": "PASS",
+  "shared_fixture_evidence": {
+    "repository": "Ddrubok/bettermakegame",
+    "commit": "fd3c15df5cbbd9226003233e573af67cf8da0c85",
+    "source_sha256_lf": "afa4f590f07b729934f55d106278c480260a7065b674895850e543796022df18",
+    "tests_sha256_lf": "a501a4dec534f5ae06f536dc814c3a9ff66666ece263896dcc0962502a2cf3a1",
+    "node": "v22.18.0",
+    "passed": 13,
+    "scope": "Synthetic trusted-event adapter and toy world; not agent, network or renderer verification"
+  },
+  "not_run": [
+    "New agent handoff/comparison",
+    "Human playtest",
+    "Native engines and real devices/network",
+    "Cross-host activation"
+  ],
+  "scope": "File consistency and explicitly recorded local regressions; no effectiveness rate",
+  "canvas": {
+    "passed": 25,
+    "evidence": "evidence/feedback-canvas-2026-11-05.json"
+  },
+  "event_replay": {
+    "node_passed": 13,
+    "browser_passed": 11,
+    "evidence": "evidence/feedback-replay-2026-11-05.json"
+  },
+  "first_frame_before_after": {
+    "before": {
+      "visiblePixels": 0,
+      "durationMs": 800,
+      "frameCount": 20,
+      "sampleTime": 0
+    },
+    "after": {
+      "visiblePixels": 4183,
+      "durationMs": 800,
+      "frameCount": 20,
+      "sampleTime": 0.02
+    }
+  },
+  "static_images_opened": [
+    "contact-sheet",
+    "light-background",
+    "active-correction"
+  ],
+  "static": {
+    "yaml_and_skill_validator": "PASS",
+    "local_link_targets_checked": 72,
+    "git_diff_check": "PASS",
+    "new_text_whitespace": "PASS"
+  }
+}
