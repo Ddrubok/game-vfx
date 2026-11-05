@@ -34,6 +34,8 @@ Use an existing brief from `bettermakegame`, the user or the project. Fill only 
 
 Keep required constraints separate from optional proposals. Respect explicit user direction over the brief's inferred defaults. Do not interpret a style brief as authority to change hit timing, hidden information, animation locks or simulation clocks. If aesthetic choices would change those things, find a presentation-only option or resolve that specific scope decision.
 
+When the brief comes from a `kill-game-slop` finding, retain its ID, judgment, evidence provenance and unknowns. Do not promote an optional proposal to a defect or a reported symptom to a reproduction. For event integration, carry only relevant identity, owner/round, state-order and cancellation details from [event-integration.md](event-integration.md); no fixed contract or extra report is required.
+
 ## Convert style into an implementation
 
 Map each consequential choice to a rendering decision: a painted reference may suggest irregular textured shapes; a hard mechanical reference may suggest segmented geometry. Neither is mandatory without evidence. Choose native materials, meshes, particles or baked textures based on the target runtime and view. Adapt or replace the bundled demonstration's rings, particles and dome when they do not suit the reference; its appearance is not the skill's default art style.

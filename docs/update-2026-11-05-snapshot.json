@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "1c8f1d4f057308e4ddf8df1939bfe0e2416cd218",
+  "revision": "uncommitted working-tree candidate",
+  "normalization": "UTF-8 text; CRLF/CR normalized to LF; SHA-256",
+  "runtime_files": {
+    "agents/openai.yaml": "8aa5b6795174a7abde67470a57723bedad89d98adce8922d04c11c0ee9e48b71",
+    "assets/canvas-impact.html": "66e68ff4f4b168cba846ef05b3e50cf8432d8682e4a14341d58eeb2ef3496940",
+    "references/event-integration.md": "980a13e9c5ecdbf9ce88fecc4a76fca35b8cec4ebca36c26f291b38427689484",
+    "references/implementation-and-export.md": "777c41e82c64409b1dc55308f66159ff13863fcb1034c72be232a85e7e048c42",
+    "references/style-and-handoff.md": "90f955b32150c0996e8e207a3a789544351401d5b2d019b1414dc366f1592ab8",
+    "references/visual-validation.md": "71cd5fe29355dbee45a1b080392e09ff6698b399bfaa4ffec283c1ff2e905f3e",
+    "SKILL.md": "0d1977af2fdb5877d169c171b9a0ec27305a39a770904ea58ece4c839aaa6a74"
+  },
+  "meaning": "file identity for package checks and maintainer fixtures; not a fresh model-use evaluation",
+  "shared_fixture_evidence": {
+    "repository": "Ddrubok/bettermakegame",
+    "directory": "evals/behavior",
+    "source_sha256_lf": "06f09ed21922f4b05514ebb80909f87a2e6d4f3d2e1fb27efaf5da63181bc368",
+    "tests_sha256_lf": "d60e858418cbcb946d334e0974b945d33e89771008331773ba0d8ab8de161597",
+    "node": "v22.18.0",
+    "date": "2026-11-05",
+    "passed": 9,
+    "scope": "synthetic local trusted-event adapter and toy simulation; not skill-behavior evaluation"
+  }
+}

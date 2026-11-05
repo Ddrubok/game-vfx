@@ -1,6 +1,6 @@
 # Game VFX
 
-[English](README.md) | [한국어](README.ko.md) · **v0.2.0**
+[English](README.md) | [한국어](README.ko.md) · **v0.3.0**
 
 게임의 아트 스타일과 실제 사건에 맞는 이펙트를 제작하는 AI 에이전트 스킬입니다. 기존 렌더러를 사용해 부드러운 2D 효과, 입자, 궤적, 셰이더, 3D 효과를 만듭니다.
 
@@ -70,7 +70,13 @@ $game-vfx 제공한 스타일 참고 자료와 이 효과를 비교해 주세요
 
 결과는 기록한 예제와 조건에 한정됩니다. 움직임의 주관적인 질, 모든 메모리 누수의 부재, 휴대폰 성능, Unity·Godot·Unreal·Flutter 연동을 입증하지 않습니다. **새 스타일 연계의 독립적인 전체 실행 평가는 NOT RUN(미실행)입니다.** 근거와 한계는 [검증 기록](docs/validation.md)에 있습니다.
 
+## v0.3.0 변경
+
+v0.3.0에는 [이벤트 연결 안내](references/event-integration.md)를 추가했습니다. 처리 중·확정 신호, 중복·순서가 바뀐 이벤트, 결과 정정, 소유자·라운드 종료를 다룹니다. kill-game-slop의 발견 사항은 bettermakegame의 제작 기준으로 전달될 때도 판단 유형·작업 범위·증거의 한계를 유지합니다. 작은 효과 하나에 세 스킬을 모두 쓸 필요는 없습니다. 검사와 미실행 평가는 [업데이트 기록](docs/update-2026-11-05.md)에 있으며, 이전 예제 결과는 새 지침의 검증 결과가 아닙니다.
+
 ## 파일과 라이선스
+
+- [event-integration.md](references/event-integration.md): 상태 표현, 순서, 수명과 범위에 맞는 연결 검사.
 
 - [SKILL.md](SKILL.md): 작업 범위, 진행 방식, 근거 기록 규칙
 - [style-and-handoff.md](references/style-and-handoff.md): 아트 방향과 제작 기준·결과 전달

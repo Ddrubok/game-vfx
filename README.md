@@ -1,6 +1,6 @@
 # Game VFX
 
-[English](README.md) | [한국어](README.ko.md) · **v0.2.0**
+[English](README.md) | [한국어](README.ko.md) · **v0.3.0**
 
 An AI agent skill for making game effects that fit the project's art direction and actual events. It covers smooth 2D effects, particles, trails, shaders, and 3D effects using the project's renderer.
 
@@ -70,10 +70,15 @@ Report differences and evidence without modifying the game.
 
 These results are limited to the recorded examples and conditions. They do not prove subjective motion quality, general leak freedom, mobile performance, or Unity/Godot/Unreal/Flutter integration. **Independent end-to-end evaluation of the new style handoff is NOT RUN.** See the [validation record](docs/validation.md) for evidence and limits.
 
+## Version 0.3.0
+
+Version 0.3.0 adds [event integration guidance](references/event-integration.md): pending versus confirmed cues, duplicate/reordered events, corrections and owner/round cleanup. Findings from kill-game-slop retain their judgment, scope and evidence limits through the bettermakegame brief. A local effect does not require all three skills. See the [update record](docs/update-2026-11-05.md) for checks and remaining evaluations; the earlier example results do not validate the new instructions.
+
 ## Files and license
 
 - [SKILL.md](SKILL.md): task scope, workflow, and evidence rules.
 - [style-and-handoff.md](references/style-and-handoff.md): visual direction and brief/result exchange.
+- [event-integration.md](references/event-integration.md): state truth, ordering, lifetime and bounded integration checks.
 - [implementation-and-export.md](references/implementation-and-export.md): renderer selection and export details.
 - [visual-validation.md](references/visual-validation.md): visual, motion, integration, and performance checks.
 

@@ -8,7 +8,7 @@ description: >-
   VFX, particles, shockwaves, or sprite-sheet export. Not a general game
   generator, whole-game polish audit, or cinematic video production skill.
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Game VFX
@@ -36,6 +36,8 @@ Locate a named companion through the host's available skills when needed. Do not
 ## Choose the smallest suitable production path
 
 Read [implementation-and-export.md](references/implementation-and-export.md) for the selected renderer or export route; ignore unrelated routes.
+
+For gameplay/event integration, read [event-integration.md](references/event-integration.md) only for the affected paths. Preserve pending/confirmed meaning, event ordering, duplicate protection and owner/round cleanup without changing authority or clocks. Carry any companion finding's original judgment and evidence limits; a synthetic event test is not real network or rendered-game verification.
 
 - Prefer existing engine particles, animation, materials, trails, and shaders when the effect needs world interaction, attachment, lighting, or per-instance control.
 - Use a sprite sheet or transparent frames when a baked 2D animation fits. A baked glow does not preserve arbitrary additive blending or scene lighting.
