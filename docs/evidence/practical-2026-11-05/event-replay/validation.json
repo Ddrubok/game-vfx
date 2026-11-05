@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-05T06:36:24.313Z",
+  "browser": "156.0.8078.80",
+  "scope": "Synthetic event adapter rendered through the Canvas example; not server, engine, player or skill-behavior evaluation",
+  "checks": [
+    "Pending event renders a provisional cue",
+    "Confirmation changes visible cue and counts one burst",
+    "Duplicate does not change rendered output",
+    "Active correction changes location without an extra burst",
+    "Lifetime completion clears actual pixels",
+    "Higher revision after completion cannot restore pixels",
+    "Round teardown clears actual pixels and history",
+    "Disposed owner cannot render late events",
+    "Real-time replay advances and renders",
+    "Real-time replay finishes",
+    "No browser script errors"
+  ],
+  "errors": []
+}

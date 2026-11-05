@@ -1,6 +1,6 @@
 # Game VFX
 
-[English](README.md) | [한국어](README.ko.md) · **v0.3.1**
+[English](README.md) | [한국어](README.ko.md) · **v0.4.0**
 
 게임의 아트 스타일과 실제 사건에 맞는 이펙트를 제작하는 AI 에이전트 스킬입니다. 기존 렌더러를 사용해 부드러운 2D 효과, 입자, 궤적, 셰이더, 3D 효과를 만듭니다.
 
@@ -14,7 +14,8 @@
 
 | 예제 | 확인할 수 있는 것 |
 | --- | --- |
-| [2D 충격파](assets/canvas-impact.html) | 부드러운 고리와 입자, 색상·시드 변경, 투명 PNG 또는 시트와 전용 JSON 저장 |
+| [2D 스타일](assets/canvas-impact.html) | 충격파·베기·반복 불씨, 크기·프레임 수·시간·색상·시드 조절, PNG·전용 JSON 저장 |
+| [Godot 실행 장면](examples/godot-sheet/README.md) | 세 출력을 가져와 종료·일시정지·재시작·소유자 정리 검사 |
 | [이벤트 재생](examples/event-replay/index.html) | 로컬 소유권·정정·종료·라운드 정리. README의 로컬 서버 실행 필요 |
 | [3D 충격파](examples/shockwave-3d/shockwave-3d.html) | 반구형 파동·고리·입자를 카메라로 회전해서 보기, 물체 가림, 1·3·6개 동시 표시 |
 
@@ -34,7 +35,7 @@
 
 ## 설치와 사용
 
-`SKILL.md`, `agents/`, `references/`, `assets/`를 함께 보관하고, 에이전트가 인식하는 스킬 위치에 `game-vfx`라는 폴더로 두세요. 저장소를 다운로드하거나 복제할 수 있습니다.
+`SKILL.md`, `LICENSE`, `agents/`, `references/`, `assets/`를 함께 보관하고, 에이전트가 인식하는 스킬 위치에 `game-vfx`라는 폴더로 두세요. 저장소를 다운로드하거나 복제할 수 있습니다.
 
 ```sh
 git clone https://github.com/Ddrubok/game-vfx.git
@@ -69,7 +70,7 @@ $game-vfx 제공한 스타일 참고 자료와 이 효과를 비교해 주세요
 - 3D 예제는 조건을 고정한 물체 가림 비교, 재생, 6개 동시 표시, 반복 생성·정리 등 자동 검사 28개를 통과했습니다. 확인한 반복 구간에서 추적한 자원 수가 증가하지 않았습니다.
 - 최종 정지 화면을 직접 열어 확인했습니다. 연결된 스킬 지침의 메타데이터·상대 링크·공백 오류도 검사했습니다.
 
-결과는 기록한 예제와 조건에 한정됩니다. 움직임의 주관적인 질, 모든 메모리 누수의 부재, 휴대폰 성능, Unity·Godot·Unreal·Flutter 연동을 입증하지 않습니다. **새 스타일 연계의 독립적인 전체 실행 평가는 NOT RUN(미실행)입니다.** 근거와 한계는 [검증 기록](docs/validation.md)에 있습니다.
+결과는 기록한 예제와 조건에 한정됩니다. 움직임의 주관적인 질, 모든 메모리 누수의 부재, 휴대폰 성능, Unity·Godot·Unreal·Flutter의 일반적인 연동을 입증하지 않습니다. 아래 v0.4.0 Godot 장면은 제한된 별도 엔진 실행 기록입니다. **새 스타일 연계의 독립적인 전체 실행 평가는 NOT RUN(미실행)입니다.** 근거와 한계는 [검증 기록](docs/validation.md)에 있습니다.
 
 ## v0.3.1 변경
 
@@ -83,7 +84,7 @@ v0.3.0에는 [이벤트 연결 안내](references/event-integration.md)를 추�
 
 ## 파일과 라이선스
 
-- [engine-adapters.md](references/engine-adapters.md): 엔진 판별·선택적 예제·미실행 Godot 가져오기 참조 코드.
+- [engine-adapters.md](references/engine-adapters.md): 엔진 판별·선택적 예제·확인 범위를 밝힌 Godot 시트 재생 장면.
 - [event-integration.md](references/event-integration.md): 상태 표현, 순서, 수명과 범위에 맞는 연결 검사.
 - [SKILL.md](SKILL.md): 작업 범위, 진행 방식, 근거 기록 규칙
 - [style-and-handoff.md](references/style-and-handoff.md): 아트 방향과 제작 기준·결과 전달
@@ -91,3 +92,11 @@ v0.3.0에는 [이벤트 연결 안내](references/event-integration.md)를 추�
 - [visual-validation.md](references/visual-validation.md): 시각·움직임·연동·성능 확인
 
 이 저장소의 자체 작성 자료는 MIT 라이선스입니다. 3D 예제에는 MIT 라이선스의 Three.js가 포함됩니다. 참고한 작업 방식과 외부 코드 고지는 [NOTICE.md](NOTICE.md)에 있습니다. pixelfx의 코드·효과·글꼴은 포함하지 않았습니다.
+
+## 실제 적용 후속 작업 — 2026-11-05
+
+[현재 수정·검증 기록](docs/practical-validation-2026-11-05.md)에 이전 라운드의 늦은 종료 콜백 수정, 실제 게임 구성요소 수리, 새 Astra 4세션 비교를 정리했습니다. 과거 결과는 보존했습니다. 짧은 지침과 전체 스킬 모두 선택 과제를 고쳤고 정상 축하 화면은 유지했습니다. 추가 정확도 우위는 확인되지 않았습니다. 원본 게임 프로젝트는 수정하지 않았습니다. 사람·실기기·네트워크와 별도 U/V·전달 평가 묶음은 미실행입니다.
+
+## v0.4.0 변경
+
+[2D 예제](assets/canvas-impact.html)에서 충격파·베기·반복 불씨를 선택하고 해상도·프레임 수·지속 시간을 조절합니다. [Godot 4.4.1 프로젝트](examples/godot-sheet/README.md)는 세 출력을 가져와 실행하며 네이티브 검사 16개를 통과했습니다. 기본 Canvas 25개, 변형 출력 18개, 로컬 이벤트 13개, 렌더링 재생 11개도 통과했습니다. 예제 검사이며 모든 엔진 지원이나 스타일 품질의 입증은 아닙니다. 작은 시트의 RGBA8 픽셀 데이터는 0.75–1MiB, 기본값은 20MiB입니다. 실제 GPU 메모리나 같은 체감 품질은 측정하지 않았습니다.

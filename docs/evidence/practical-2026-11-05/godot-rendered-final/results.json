@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "impact: image/JSON imported",
+    "impact: first frame exists",
+    "slash: image/JSON imported",
+    "slash: first frame exists",
+    "embers: image/JSON imported",
+    "embers: first frame exists",
+    "rendered capture saved",
+    "pause freezes frame and progress",
+    "impact: finish signal near declared duration",
+    "impact: one-shot hidden on completion",
+    "slash: finish signal near declared duration",
+    "slash: one-shot hidden on completion",
+    "loop is playing and has no one-shot completion",
+    "replay restarts completed effect",
+    "cancel stops and hides owned effect",
+    "owner removal leaves loop alive"
+  ],
+  "display_driver": "Windows",
+  "engine": "4.4.1-stable (official)",
+  "failures": [],
+  "one_shot_elapsed_seconds": {
+    "impact": 0.582783,
+    "slash": 0.382836
+  },
+  "passed": true,
+  "renderer": "gl_compatibility",
+  "scope": "Native sheet decoding, SpriteFrames playback and owner lifecycle. Synthetic local scene; not a shipped game, device performance or agent comparison."
+}

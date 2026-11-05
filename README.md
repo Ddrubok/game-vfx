@@ -1,6 +1,6 @@
 # Game VFX
 
-[English](README.md) | [한국어](README.ko.md) · **v0.3.1**
+[English](README.md) | [한국어](README.ko.md) · **v0.4.0**
 
 An AI agent skill for making game effects that fit the project's art direction and actual events. It covers smooth 2D effects, particles, trails, shaders, and 3D effects using the project's renderer.
 
@@ -14,7 +14,8 @@ Download or clone the repository, then open these HTML files in a suitable brows
 
 | Example | What it does |
 | --- | --- |
-| [2D impact](assets/canvas-impact.html) | Preview a smooth ring and sparks; change color/seed; save a transparent PNG or sheet plus custom JSON. |
+| [2D styles](assets/canvas-impact.html) | Impact, ribbon slash and looping embers; adjust size, frame count, duration, color and seed; export PNG/custom JSON. |
+| [Godot native scene](examples/godot-sheet/README.md) | Import and play all three exports; check finish, pause, replay and owner cleanup. |
 | [Event replay](examples/event-replay/index.html) | Local event ownership, corrections, completion and round cleanup; requires the local server described in its README. |
 | [3D shockwave](examples/shockwave-3d/shockwave-3d.html) | Rotate the camera around a hemisphere, rings, and particles; inspect occlusion; show 1, 3, or 6 effects. |
 
@@ -34,7 +35,7 @@ Each skill works alone. This handoff uses instructions in the same session; it d
 
 ## Install and use
 
-Keep `SKILL.md`, `agents/`, `references/`, and `assets/` together in a folder named `game-vfx` in a skill location recognized by your agent. Download this repository or clone it:
+Keep `SKILL.md`, `LICENSE`, `agents/`, `references/`, and `assets/` together in a folder named `game-vfx` in a skill location recognized by your agent. Download this repository or clone it:
 
 ```sh
 git clone https://github.com/Ddrubok/game-vfx.git
@@ -69,7 +70,7 @@ Report differences and evidence without modifying the game.
 - The 3D example passed 28 automated checks, including a controlled occlusion comparison, playback, six simultaneous effects, and repeated creation/cleanup. Its tracked resource counts did not grow during the sampled cycles.
 - Final static captures were opened for visual inspection. The linked skill instructions passed metadata, relative-link, and whitespace checks.
 
-These results are limited to the recorded examples and conditions. They do not prove subjective motion quality, general leak freedom, mobile performance, or Unity/Godot/Unreal/Flutter integration. **Independent end-to-end evaluation of the new style handoff is NOT RUN.** See the [validation record](docs/validation.md) for evidence and limits.
+These results are limited to the recorded examples and conditions. They do not prove subjective motion quality, general leak freedom, mobile performance, or general Unity/Godot/Unreal/Flutter integration. The separate v0.4.0 Godot scene below has a narrower native test record. **Independent end-to-end evaluation of the new style handoff is NOT RUN.** See the [validation record](docs/validation.md) for evidence and limits.
 
 ## Version 0.3.1
 
@@ -85,9 +86,17 @@ Version 0.3.0 adds [event integration guidance](references/event-integration.md)
 
 - [SKILL.md](SKILL.md): task scope, workflow, and evidence rules.
 - [style-and-handoff.md](references/style-and-handoff.md): visual direction and brief/result exchange.
-- [engine-adapters.md](references/engine-adapters.md): engine identification, optional examples and unverified Godot import snippet.
+- [engine-adapters.md](references/engine-adapters.md): engine identification, optional examples and the tested Godot sheet scene with disclosed limits.
 - [event-integration.md](references/event-integration.md): state truth, ordering, lifetime and bounded integration checks.
 - [implementation-and-export.md](references/implementation-and-export.md): renderer selection and export details.
 - [visual-validation.md](references/visual-validation.md): visual, motion, integration, and performance checks.
 
 This repository's original material is MIT licensed. The 3D example includes Three.js under its MIT license. Workflow inspiration and third-party notices are in [NOTICE.md](NOTICE.md). No pixelfx code, effects, or fonts are bundled.
+
+## Practical follow-up — 2026-11-05
+
+See the [current repair and evidence record](docs/practical-validation-2026-11-05.md). This pass fixes the shared fixture's stale completion callback, preserves historical results, and publishes a real game-component repair plus a fresh four-session comparison. Both short and full-skill conditions repaired the selection task and preserved the normal celebration; no added accuracy advantage was demonstrated. The original game project was not edited. Human/device/network tests and the dedicated U/V/handoff sets remain unrun.
+
+## Version 0.4.0
+
+The [2D example](assets/canvas-impact.html) now exports impact, ribbon slash and looping embers with configurable resolution, frame count and duration. A [Godot 4.4.1 native project](examples/godot-sheet/README.md) imports all three; 16 native checks passed. Default Canvas checks (25), configurable exports (18), local event tests (13) and rendered replay (11) passed. These are example checks, not general engine support or proof of style quality. The recorded small atlases contain 0.75–1 MiB of RGBA8 pixels versus the default 20 MiB; actual GPU memory and equal perceived quality were not measured.

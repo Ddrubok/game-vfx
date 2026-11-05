@@ -10,35 +10,15 @@ Use [canvas-impact.html](../assets/canvas-impact.html) for a small 2D source/exp
 
 For WebGL2, the optional repository example is [shockwave-3d](https://github.com/Ddrubok/game-vfx/tree/main/examples/shockwave-3d), with editable source, build and browser-check commands. It is not bundled into every installed runtime folder. Reuse the project's engine/version; the offline demonstration does not establish compatibility with another Three.js version or an in-game event connection. It remains one shockwave, not a catalog of art styles.
 
-## Godot 4 sheet adapter (reference snippet; NOT RUN)
+## Godot 4 sheet adapter
 
-The exported JSON is custom, not a native Godot resource. After importing the PNG, attach an `AnimatedSprite2D` to the intended presentation owner. For the sample's center pivot, create atlas regions and respect **duration**, not the frame's sample time:
+The optional repository [Godot project](https://github.com/Ddrubok/game-vfx/tree/main/examples/godot-sheet) supplies an actual importer and a native test scene for all three exported styles. It uses imported `Texture2D` resources and atlas rectangles, maps `durationMs` to SpriteFrames' relative duration at the stated FPS, applies the pivot, respects loop flags, and handles finish/replay/cancel/owner removal. This remains a synthetic native scene, not a shipped-game or Android/iOS certification. Keep JSON files in export include filters; packaged game exports require their own test.
 
-```gdscript
-# Reference for Godot 4.4 APIs, not an engine-tested integration.
-func configure_sheet(sprite: AnimatedSprite2D, texture: Texture2D, data: Dictionary) -> void:
-    assert(data["format"] == "game-vfx-sheet-v1")
-    var frames := SpriteFrames.new()
-    frames.remove_animation(&"default")
-    frames.add_animation(&"impact")
-    frames.set_animation_loop(&"impact", false)
-    frames.set_animation_speed(&"impact", 1.0)
-    for item in data["frames"]:
-        var region := AtlasTexture.new()
-        region.atlas = texture
-        region.region = Rect2(item["x"], item["y"], item["width"], item["height"])
-        frames.add_frame(&"impact", region, float(item["durationMs"]) / 1000.0)
-    sprite.sprite_frames = frames
-    sprite.centered = true # This sample has a center pivot; adapt other pivots.
-    sprite.speed_scale = 1.0
-    sprite.animation_finished.connect(sprite.hide, CONNECT_ONE_SHOT)
-    sprite.show()
-    sprite.play(&"impact")
-```
+Record the installed version with `godot --version`; import with `godot --headless --path "project" --editor --import --quit`, then run `godot --path "project"`. The project README lists automated evidence commands. Headless import does not inspect rendered appearance. The verified native sample is Godot 4.4.1, Windows, GL Compatibility; Unity/Unreal execution is still unverified.
 
-With animation speed 1 frame/s, each frame's relative duration above equals its seconds. Connect cleanup once per new playback; for pooled reuse disconnect obsolete callbacks and validate generation/owner. This snippet assumes a valid sample export; a production importer also validates dimensions, bounds, pivot, durations and resource availability. Do not count `frame_changed` on entry to the final frame as full completion; the final frame still has a duration. These APIs are documented in [SpriteFrames](https://docs.godotengine.org/en/4.4/classes/class_spriteframes.html) and [AnimatedSprite2D](https://docs.godotengine.org/en/4.4/classes/class_animatedsprite2d.html). Check the installed version before use.
+Record animation FPS, per-frame durations, speed scale, start phase and actual finish signal when diagnosing timing. Starting during initial scene loading can charge a previous frame's delta to the first animation step; warm the render before measuring, and disclose frame-boundary uncertainty and observed wall time. Do not silently shorten metadata to fit a timer observation. The earlier user's 0.75 s versus 0.8 s observation has no captured project here and remains an unconfirmed diagnosis.
 
-If Godot is already available, record `godot --version`, then use `godot --headless --path "project" --editor --import` for import/parsing and `godot --path "project"` for actual playback. Headless import is not a viewed render. Record start time, frame durations, speed scales, pause policy and the actual finish signal when diagnosing timing. A user-reported 0.75 s finish versus 0.8 s metadata remains unexplained until reproduced; do not silently change metadata to match it.
+For version-specific details use [SpriteFrames](https://docs.godotengine.org/en/4.4/classes/class_spriteframes.html) and [AnimatedSprite2D](https://docs.godotengine.org/en/4.4/classes/class_animatedsprite2d.html). Animation completion differs from entering the last frame; retain its duration. Do not let an old owner's callback hide a pooled replacement. The local event template shows the lifetime boundary separately from the engine adapter.
 
 ## Memory and native recreation
 

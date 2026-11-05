@@ -8,7 +8,7 @@ description: >-
   VFX, particles, shockwaves, or sprite-sheet export. Not a general game
   generator, whole-game polish audit, or cinematic video production skill.
 metadata:
-  version: "0.3.1"
+  version: "0.4.0"
 ---
 
 # Game VFX
@@ -39,7 +39,7 @@ Read [implementation-and-export.md](references/implementation-and-export.md) for
 
 - Prefer existing engine particles, animation, materials, trails, and shaders when the effect needs world interaction, attachment, lighting, or per-instance control.
 - Use a sprite sheet or transparent frames when a baked 2D animation fits. A baked glow does not preserve arbitrary additive blending or scene lighting.
-- For a self-contained 2D prototype, copy [canvas-impact.html](assets/canvas-impact.html) into the task's output folder and adapt it there. It opens without a build, previews one smooth shockwave, and exports a transparent frame or PNG sheet plus separate JSON metadata. It is not a 3D renderer or a production effects framework.
+- For a self-contained 2D prototype, copy [canvas-impact.html](assets/canvas-impact.html) into the task's output folder and adapt it there. It opens without a build, previews a shockwave, directional slash or looping embers, and exports a transparent frame or PNG sheet plus separate JSON metadata with adjustable size, frame count and duration. It is not a 3D renderer or a production effects framework.
 - When a painted texture or other bitmap asset is needed, use an available image-generation/editing workflow or licensed project asset. Verify that the tool exists; do not claim a texture was generated if only a prompt was written. A still image does not establish animation coherence.
 - Check actual editor/CLI/image-viewing capabilities. If an editor or renderer is unavailable, deliver the source or a precise unapplied specification appropriate to the request and identify the missing verification. Do not invent successful imports, API calls, or tool names.
 

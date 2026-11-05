@@ -4,3 +4,6 @@ examples/shockwave-3d/evidence/
 Thumbs.db
 examples/canvas-verification/output/
 examples/event-replay/output/
+
+examples/godot-sheet/.godot/
+examples/godot-sheet/output/

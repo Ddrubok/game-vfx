@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-05",
+  "scope": "Current local source; see companion snapshot for identity. No publish or final commit is claimed.",
+  "executed": {
+    "event_node_passed": 13,
+    "rendered_event_checks": 11,
+    "default_canvas_checks": 25,
+    "variant_checks": 18,
+    "native_godot_checks": 16,
+    "godot_finish_observations_seconds": {
+      "impact": 0.582783,
+      "slash": 0.382836
+    },
+    "godot_finish_assertion_tolerance_seconds": 0.1,
+    "old_3d_checks_this_pass": "NOT RUN (source unchanged)"
+  },
+  "static": {
+    "runtime_files": 10,
+    "evaluated_runtime_matches": true,
+    "markdown_file_targets": 92,
+    "git_diff_check_exit": 0,
+    "new_text_whitespace_errors": 0
+  },
+  "yaml_quick_validate": "PASS",
+  "runtime_package_file_links": "PASS",
+  "not_run": [
+    "Human playtest/preference",
+    "Physical mobile/gamepad tests",
+    "Production network",
+    "Dedicated U/V and handoff case sets"
+  ],
+  "limits": "Automated artifact checks and four author-aware Astra sessions are separate; no general accuracy, speed or quality improvement percentage."
+}

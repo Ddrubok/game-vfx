@@ -1,0 +1,226 @@
+{
+  "format": "game-vfx-sheet-v1",
+  "effect": "smooth-impact",
+  "width": 2560,
+  "height": 2048,
+  "fps": 25,
+  "durationSeconds": 0.8,
+  "loop": false,
+  "blend": "source-over",
+  "sampling": "interval-midpoint",
+  "pivotPixels": {
+    "x": 256,
+    "y": 256
+  },
+  "options": {
+    "color": "#29b8ad",
+    "seed": 23,
+    "reducedMotion": false,
+    "effect": "impact",
+    "size": 512,
+    "frames": 20,
+    "duration": 0.8
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0,
+      "sampleTimeSeconds": 0.02,
+      "durationMs": 40
+    },
+    {
+      "index": 1,
+      "x": 512,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.04,
+      "sampleTimeSeconds": 0.06,
+      "durationMs": 40
+    },
+    {
+      "index": 2,
+      "x": 1024,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.08,
+      "sampleTimeSeconds": 0.1,
+      "durationMs": 40
+    },
+    {
+      "index": 3,
+      "x": 1536,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.12,
+      "sampleTimeSeconds": 0.14,
+      "durationMs": 40
+    },
+    {
+      "index": 4,
+      "x": 2048,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.16,
+      "sampleTimeSeconds": 0.18,
+      "durationMs": 40
+    },
+    {
+      "index": 5,
+      "x": 0,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.2,
+      "sampleTimeSeconds": 0.22,
+      "durationMs": 40
+    },
+    {
+      "index": 6,
+      "x": 512,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.24,
+      "sampleTimeSeconds": 0.26,
+      "durationMs": 40
+    },
+    {
+      "index": 7,
+      "x": 1024,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.28,
+      "sampleTimeSeconds": 0.3,
+      "durationMs": 40
+    },
+    {
+      "index": 8,
+      "x": 1536,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.32,
+      "sampleTimeSeconds": 0.34,
+      "durationMs": 40
+    },
+    {
+      "index": 9,
+      "x": 2048,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.36,
+      "sampleTimeSeconds": 0.38,
+      "durationMs": 40
+    },
+    {
+      "index": 10,
+      "x": 0,
+      "y": 1024,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.4,
+      "sampleTimeSeconds": 0.42,
+      "durationMs": 40
+    },
+    {
+      "index": 11,
+      "x": 512,
+      "y": 1024,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.44,
+      "sampleTimeSeconds": 0.46,
+      "durationMs": 40
+    },
+    {
+      "index": 12,
+      "x": 1024,
+      "y": 1024,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.48,
+      "sampleTimeSeconds": 0.5,
+      "durationMs": 40
+    },
+    {
+      "index": 13,
+      "x": 1536,
+      "y": 1024,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.52,
+      "sampleTimeSeconds": 0.54,
+      "durationMs": 40
+    },
+    {
+      "index": 14,
+      "x": 2048,
+      "y": 1024,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.56,
+      "sampleTimeSeconds": 0.58,
+      "durationMs": 40
+    },
+    {
+      "index": 15,
+      "x": 0,
+      "y": 1536,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.6,
+      "sampleTimeSeconds": 0.62,
+      "durationMs": 40
+    },
+    {
+      "index": 16,
+      "x": 512,
+      "y": 1536,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.64,
+      "sampleTimeSeconds": 0.66,
+      "durationMs": 40
+    },
+    {
+      "index": 17,
+      "x": 1024,
+      "y": 1536,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.68,
+      "sampleTimeSeconds": 0.7,
+      "durationMs": 40
+    },
+    {
+      "index": 18,
+      "x": 1536,
+      "y": 1536,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.72,
+      "sampleTimeSeconds": 0.74,
+      "durationMs": 40
+    },
+    {
+      "index": 19,
+      "x": 2048,
+      "y": 1536,
+      "width": 512,
+      "height": 512,
+      "timeSeconds": 0.76,
+      "sampleTimeSeconds": 0.78,
+      "durationMs": 40
+    }
+  ]
+}

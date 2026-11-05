@@ -1,0 +1,545 @@
+{
+  "date": "2026-11-05T06:12:44.217Z",
+  "browser": "156.0.8078.80",
+  "checks": [
+    "impact: png download",
+    "impact: json download",
+    "impact: settings, pivot and full duration",
+    "impact: packed alpha matches; premultiplied color within one unit; fits",
+    "slash: png download",
+    "slash: json download",
+    "slash: settings, pivot and full duration",
+    "slash: packed alpha matches; premultiplied color within one unit; fits",
+    "embers: png download",
+    "embers: json download",
+    "embers: settings, pivot and full duration",
+    "embers: packed alpha matches; premultiplied color within one unit; fits",
+    "Ember cycle endpoints match exactly",
+    "Reduced-motion ember pattern is static",
+    "Loop continues beyond one cycle",
+    "Invalid API parameters are rejected before atlas allocation",
+    "Invalid UI value reports an error without a page crash",
+    "No browser errors"
+  ],
+  "assets": [
+    {
+      "effect": "impact",
+      "metadata": {
+        "format": "game-vfx-sheet-v1",
+        "effect": "smooth-impact",
+        "width": 512,
+        "height": 384,
+        "fps": 20,
+        "durationSeconds": 0.6,
+        "loop": false,
+        "blend": "source-over",
+        "sampling": "interval-midpoint",
+        "pivotPixels": {
+          "x": 64,
+          "y": 64
+        },
+        "options": {
+          "color": "#29b8ad",
+          "seed": 23,
+          "reducedMotion": false,
+          "effect": "impact",
+          "size": 128,
+          "frames": 12,
+          "duration": 0.6
+        },
+        "frames": [
+          {
+            "index": 0,
+            "x": 0,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0,
+            "sampleTimeSeconds": 0.025,
+            "durationMs": 50
+          },
+          {
+            "index": 1,
+            "x": 128,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.05,
+            "sampleTimeSeconds": 0.075,
+            "durationMs": 50
+          },
+          {
+            "index": 2,
+            "x": 256,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.1,
+            "sampleTimeSeconds": 0.125,
+            "durationMs": 50
+          },
+          {
+            "index": 3,
+            "x": 384,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.15,
+            "sampleTimeSeconds": 0.175,
+            "durationMs": 50
+          },
+          {
+            "index": 4,
+            "x": 0,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.2,
+            "sampleTimeSeconds": 0.225,
+            "durationMs": 50
+          },
+          {
+            "index": 5,
+            "x": 128,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.25,
+            "sampleTimeSeconds": 0.275,
+            "durationMs": 50
+          },
+          {
+            "index": 6,
+            "x": 256,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.3,
+            "sampleTimeSeconds": 0.325,
+            "durationMs": 50
+          },
+          {
+            "index": 7,
+            "x": 384,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.35,
+            "sampleTimeSeconds": 0.375,
+            "durationMs": 50
+          },
+          {
+            "index": 8,
+            "x": 0,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.4,
+            "sampleTimeSeconds": 0.425,
+            "durationMs": 50
+          },
+          {
+            "index": 9,
+            "x": 128,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.45,
+            "sampleTimeSeconds": 0.475,
+            "durationMs": 50
+          },
+          {
+            "index": 10,
+            "x": 256,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.5,
+            "sampleTimeSeconds": 0.525,
+            "durationMs": 50
+          },
+          {
+            "index": 11,
+            "x": 384,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.55,
+            "sampleTimeSeconds": 0.575,
+            "durationMs": 50
+          }
+        ]
+      },
+      "export": {
+        "matching": 3,
+        "firstVisible": true,
+        "clipped": 0,
+        "maxAlphaDelta": 0,
+        "maxPremultipliedDelta": 0.8000000000000114,
+        "width": 512,
+        "height": 384
+      },
+      "rgba8Bytes": 786432
+    },
+    {
+      "effect": "slash",
+      "metadata": {
+        "format": "game-vfx-sheet-v1",
+        "effect": "directional-slash",
+        "width": 512,
+        "height": 384,
+        "fps": 30,
+        "durationSeconds": 0.4,
+        "loop": false,
+        "blend": "source-over",
+        "sampling": "interval-midpoint",
+        "pivotPixels": {
+          "x": 64,
+          "y": 64
+        },
+        "options": {
+          "color": "#d1b58a",
+          "seed": 23,
+          "reducedMotion": false,
+          "effect": "slash",
+          "size": 128,
+          "frames": 12,
+          "duration": 0.4
+        },
+        "frames": [
+          {
+            "index": 0,
+            "x": 0,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0,
+            "sampleTimeSeconds": 0.016666666666666666,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 1,
+            "x": 128,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.03333333333333333,
+            "sampleTimeSeconds": 0.05,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 2,
+            "x": 256,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.06666666666666667,
+            "sampleTimeSeconds": 0.08333333333333333,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 3,
+            "x": 384,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.1,
+            "sampleTimeSeconds": 0.11666666666666667,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 4,
+            "x": 0,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.13333333333333333,
+            "sampleTimeSeconds": 0.15,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 5,
+            "x": 128,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.16666666666666666,
+            "sampleTimeSeconds": 0.18333333333333332,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 6,
+            "x": 256,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.2,
+            "sampleTimeSeconds": 0.21666666666666667,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 7,
+            "x": 384,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.23333333333333334,
+            "sampleTimeSeconds": 0.25,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 8,
+            "x": 0,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.26666666666666666,
+            "sampleTimeSeconds": 0.2833333333333333,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 9,
+            "x": 128,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.3,
+            "sampleTimeSeconds": 0.31666666666666665,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 10,
+            "x": 256,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.3333333333333333,
+            "sampleTimeSeconds": 0.35,
+            "durationMs": 33.333333333333336
+          },
+          {
+            "index": 11,
+            "x": 384,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.36666666666666664,
+            "sampleTimeSeconds": 0.38333333333333336,
+            "durationMs": 33.333333333333336
+          }
+        ]
+      },
+      "export": {
+        "matching": 2,
+        "firstVisible": true,
+        "clipped": 0,
+        "maxAlphaDelta": 0,
+        "maxPremultipliedDelta": 0.4000000000000057,
+        "width": 512,
+        "height": 384
+      },
+      "rgba8Bytes": 786432
+    },
+    {
+      "effect": "embers",
+      "metadata": {
+        "format": "game-vfx-sheet-v1",
+        "effect": "ember-loop",
+        "width": 512,
+        "height": 512,
+        "fps": 10,
+        "durationSeconds": 1.6,
+        "loop": true,
+        "blend": "source-over",
+        "sampling": "interval-midpoint",
+        "pivotPixels": {
+          "x": 64,
+          "y": 64
+        },
+        "options": {
+          "color": "#e89643",
+          "seed": 23,
+          "reducedMotion": false,
+          "effect": "embers",
+          "size": 128,
+          "frames": 16,
+          "duration": 1.6
+        },
+        "frames": [
+          {
+            "index": 0,
+            "x": 0,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0,
+            "sampleTimeSeconds": 0.05,
+            "durationMs": 100
+          },
+          {
+            "index": 1,
+            "x": 128,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.1,
+            "sampleTimeSeconds": 0.15,
+            "durationMs": 100
+          },
+          {
+            "index": 2,
+            "x": 256,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.2,
+            "sampleTimeSeconds": 0.25,
+            "durationMs": 100
+          },
+          {
+            "index": 3,
+            "x": 384,
+            "y": 0,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.3,
+            "sampleTimeSeconds": 0.35,
+            "durationMs": 100
+          },
+          {
+            "index": 4,
+            "x": 0,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.4,
+            "sampleTimeSeconds": 0.45,
+            "durationMs": 100
+          },
+          {
+            "index": 5,
+            "x": 128,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.5,
+            "sampleTimeSeconds": 0.55,
+            "durationMs": 100
+          },
+          {
+            "index": 6,
+            "x": 256,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.6,
+            "sampleTimeSeconds": 0.65,
+            "durationMs": 100
+          },
+          {
+            "index": 7,
+            "x": 384,
+            "y": 128,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.7,
+            "sampleTimeSeconds": 0.75,
+            "durationMs": 100
+          },
+          {
+            "index": 8,
+            "x": 0,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.8,
+            "sampleTimeSeconds": 0.85,
+            "durationMs": 100
+          },
+          {
+            "index": 9,
+            "x": 128,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 0.9,
+            "sampleTimeSeconds": 0.95,
+            "durationMs": 100
+          },
+          {
+            "index": 10,
+            "x": 256,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 1,
+            "sampleTimeSeconds": 1.05,
+            "durationMs": 100
+          },
+          {
+            "index": 11,
+            "x": 384,
+            "y": 256,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 1.1,
+            "sampleTimeSeconds": 1.15,
+            "durationMs": 100
+          },
+          {
+            "index": 12,
+            "x": 0,
+            "y": 384,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 1.2,
+            "sampleTimeSeconds": 1.25,
+            "durationMs": 100
+          },
+          {
+            "index": 13,
+            "x": 128,
+            "y": 384,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 1.3,
+            "sampleTimeSeconds": 1.35,
+            "durationMs": 100
+          },
+          {
+            "index": 14,
+            "x": 256,
+            "y": 384,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 1.4,
+            "sampleTimeSeconds": 1.45,
+            "durationMs": 100
+          },
+          {
+            "index": 15,
+            "x": 384,
+            "y": 384,
+            "width": 128,
+            "height": 128,
+            "timeSeconds": 1.5,
+            "sampleTimeSeconds": 1.55,
+            "durationMs": 100
+          }
+        ]
+      },
+      "export": {
+        "matching": 2,
+        "firstVisible": true,
+        "clipped": 0,
+        "maxAlphaDelta": 0,
+        "maxPremultipliedDelta": 0.2666666666666657,
+        "width": 512,
+        "height": 512
+      },
+      "rgba8Bytes": 1048576
+    }
+  ],
+  "errors": [],
+  "scope": "Parameterized Canvas outputs and three shape/motion examples; not artist preference or target-device performance"
+}
