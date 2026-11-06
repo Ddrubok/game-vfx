@@ -7,13 +7,15 @@ import { createHash } from 'node:crypto';
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
 const { PNG } = require('pngjs');
-const root = path.dirname(fileURLToPath(import.meta.url)), out = path.join(root, 'evidence');
+const locale = process.argv[2] === 'ko' ? 'ko' : 'en';
+const suffix = locale === 'ko' ? '.ko' : '';
+const root = path.dirname(fileURLToPath(import.meta.url)), out = path.join(root, 'evidence', locale);
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch({ headless: true, ...(process.env.VFX_BROWSER_EXECUTABLE ? { executablePath: process.env.VFX_BROWSER_EXECUTABLE } : {}) });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1040 }, reducedMotion: 'no-preference' });
 const page = await context.newPage(), errors = [], network = [], checks = [];
 const check = (name, value) => { assert.ok(value, name); checks.push(name); };
-const url = pathToFileURL(path.join(root, 'shockwave-3d.html')).href;
+const url = pathToFileURL(path.join(root, `shockwave-3d${suffix}.html`)).href;
 page.on('pageerror', error => errors.push(error.message));
 page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
 page.on('request', request => { if (/^https?:/.test(request.url())) network.push(request.url()); });
@@ -23,6 +25,13 @@ try {
   await page.goto(url);
   await page.waitForFunction(() => window.vfx3d?.ready, null, { timeout: 20000 });
   const environment = await page.evaluate(() => vfx3d.snapshot());
+  check('Page language, controls and initial state match the selected language', await page.evaluate(locale =>
+    document.documentElement.lang === locale && document.querySelector('#play').textContent === (locale === 'ko' ? '다시 재생' : 'Replay') &&
+    document.querySelector('#stateLabel').textContent === (locale === 'ko' ? '확산' : 'Expanding'), locale));
+  if (locale === 'en') check('English UI and accessibility labels contain no Korean outside the language switch', await page.evaluate(() => {
+    const main = document.querySelector('main').cloneNode(true); main.querySelector('nav').remove();
+    return !/[\uac00-\ud7af]/.test(main.textContent + [...main.querySelectorAll('[aria-label]')].map(e => e.getAttribute('aria-label')).join(''));
+  }));
   console.log(JSON.stringify({ browser: browser.version(), gpu: environment.gpu, revision: environment.threeRevision }));
   check('Three.js 187 scene initializes in a WebGL2 browser', environment.threeRevision === '187' && environment.instances === 1);
   await page.screenshot({ path: path.join(out, '01-isometric.png'), fullPage: true });
@@ -81,6 +90,7 @@ try {
   check('Tracked geometry and texture counts do not grow across those cycles', before.memory.geometries === after.memory.geometries && before.memory.textures === after.memory.textures);
   check('Shader program count does not grow across those cycles', before.programs === after.programs);
   await page.click('#clear');
+  check('Cleared state is localized', await page.locator('#stateLabel').textContent() === (locale === 'ko' ? '지워짐' : 'Cleared'));
   check('Clear removes effect owners from the scene', (await page.evaluate(() => vfx3d.snapshot())).instances === 0);
   await page.click('#play'); await page.waitForTimeout(300);
   check('Replay recreates a cleared effect and advances time', await page.evaluate(() => { const s = vfx3d.snapshot(); return s.instances === 1 && s.time > 0 && s.running; }));
@@ -106,6 +116,7 @@ try {
   await page.click('#view-iso');
   const downloadEvent = page.waitForEvent('download'); await page.click('#capture');
   const download = await downloadEvent; await download.saveAs(path.join(out, 'scene-export.png'));
+  check('PNG notice uses the selected language', (await page.locator('#notice').textContent()).startsWith(locale === 'ko' ? '현재 카메라' : 'Saving the current camera'));
   const exported = PNG.sync.read(await readFile(path.join(out, 'scene-export.png')));
   check('UI exports a readable PNG of the actual canvas', exported.width === Math.round(box.width) && exported.height === Math.round(box.height));
 
@@ -132,7 +143,7 @@ try {
   check('No HTTP requests are needed by the offline HTML', network.length === 0);
   check('No browser JavaScript or shader errors were logged', errors.length === 0);
   const hashes = {};
-  for (const name of ['shockwave.js', 'app.js', 'template.html', 'shockwave-3d.html', 'package-lock.json']) hashes[name] = createHash('sha256').update(await readFile(path.join(root, name))).digest('hex');
+  for (const name of ['shockwave.js', 'app.js', `template${suffix}.html`, `shockwave-3d${suffix}.html`, 'package-lock.json']) hashes[name] = createHash('sha256').update(await readFile(path.join(root, name))).digest('hex');
   const report = { date: new Date().toISOString(), browser: browser.version(), environment, checks, occlusion, repeatedCycles: { count: 20, before, after }, sixEffects: six, frames, errors, network, hashes, limits: ['No human real-time motion rating', 'No Unity/Godot/Flutter integration', 'No real phone benchmark', 'Resource counters are not a full GPU/heap leak audit'] };
   await writeFile(path.join(out, 'validation.json'), JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify({ passed: checks.length, errors, memoryBefore: before.memory, memoryAfter: after.memory, programsBefore: before.programs, programsAfter: after.programs }, null, 2));

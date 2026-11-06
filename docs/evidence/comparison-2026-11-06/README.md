@@ -1,5 +1,7 @@
 # Paired comparison evidence
 
+[English](README.md) | [한국어](README.ko.md)
+
 See the [report and score tables](../../comparison-2026-11-06.md) and [protocol](PROTOCOL.md). `runs/<label>/` contains the twelve unchanged submissions and requests; `manifest.json` maps labels to tasks and conditions. `blind-review/gallery.png` and `score.json` contain the separate blinded visual review. `submission-audit.json` records source hashes, usage, self-reported revisions, files read and command counts.
 
 The original result JSON files are historical evidence. Personal machine paths, session IDs, raw shell commands and host logs are omitted from the public copies. The full local transcripts were retained. This package does not automatically start model sessions; it reproduces the common checks on their saved outputs.

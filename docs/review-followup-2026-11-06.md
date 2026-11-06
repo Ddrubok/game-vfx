@@ -1,8 +1,10 @@
-﻿# Review follow-up, 2026-11-06 (v0.4.1)
+# Review follow-up, 2026-11-06 (v0.4.1)
+
+[English](review-followup-2026-11-06.md) | [한국어](review-followup-2026-11-06.ko.md)
 
 Later update: the [12-session paired pilot](comparison-2026-11-06.md) is now complete. Both conditions passed 90/90 functional checks; one blinded style review preferred the baseline. No general quality advantage was established. NOT RUN entries below describe the earlier repair-validation stage.
 
-Based on the supplied review of commit 8e9ea86. Changes are local; no commit, push or release was performed. Historical evidence remains historical.
+Based on the supplied review of commit 8e9ea86. This records the local repair stage, during which no commit, push or release was performed. Historical evidence remains historical.
 
 | Finding | Change and evidence |
 | --- | --- |

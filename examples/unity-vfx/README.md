@@ -1,5 +1,7 @@
 # Unity VFX experiment
 
+[English](README.md) | [한국어](README.ko.md)
+
 Actual Unity Editor Play Mode tests of the bundled impact/slash/embers PNG sheets plus a native Particle System burst. Built-in renderer, Direct3D11, Windows. Tested with installed Unity 6000.4.0f1 and 6000.5.7f1; the saved project version is 6000.5.7f1. No external packages or test framework are required.
 
 Use an installed, licensed editor (replace absolute paths):

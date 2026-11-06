@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Game VFX · 3D 충격파 실험</title>
+<title>Game VFX · 3D shockwave study</title>
 <style>
   :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #11171c; color: #e8eae7; }
   * { box-sizing: border-box; }
   body { margin: 0; }
+  nav { margin-bottom: 18px; font-size: 13px; }
+  nav a { color: #a9ddcc; }
   main { max-width: 1440px; margin: auto; padding: 30px 32px; }
   header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-end; margin-bottom: 25px; }
   .eyebrow { color: #97b4ac; font-size: 11px; letter-spacing: .15em; }
@@ -47,22 +49,23 @@
 </head>
 <body>
 <main>
-  <header><div><div class="eyebrow">GAME VFX / STUDY 02</div><h1>공간을 가르는 충격파</h1><p>시점을 돌려 파동의 높이와 기둥 뒤로 가려지는 부분을 확인하세요.</p></div><span class="badge">3D · WebGL</span></header>
+  <nav aria-label="Language"><a href="shockwave-3d.html" lang="en" aria-current="page">English</a> · <a href="shockwave-3d.ko.html" lang="ko">한국어</a></nav>
+  <header><div><div class="eyebrow">GAME VFX / STUDY 02</div><h1>A shockwave through space</h1><p>Orbit the camera to inspect the wave's height and occlusion behind the pillars.</p></div><span class="badge">3D · WebGL</span></header>
   <div class="workspace">
-    <section id="viewport" aria-label="3D 충격파 실험 장면"><div class="view-note">드래그: 회전 · 휠: 확대 · 방향키: 회전</div><p id="error" hidden></p></section>
+    <section id="viewport" aria-label="3D shockwave scene"><div class="view-note">Drag: orbit · Wheel: zoom · Arrow keys: orbit</div><p id="error" hidden></p></section>
     <aside>
-      <h2>효과 조절</h2>
-      <label class="setting"><span>퍼지는 반경 <output id="radiusValue">3.8</output></span><input id="radius" type="range" min="1.5" max="5" step="0.1" value="3.8"></label>
-      <label class="setting"><span>지속 시간 <output id="durationValue">1.60 s</output></span><input id="duration" type="range" min="0.8" max="2.8" step="0.1" value="1.6"></label>
-      <label class="setting"><span>효과 색상</span><input id="color" type="color" value="#69e5cd"></label>
-      <label class="setting"><span>동시에 표시할 효과</span><select id="count"><option value="1">1개</option><option value="3">3개</option><option value="6">6개</option></select></label>
-      <label class="check"><input id="obstacles" type="checkbox" checked>가림 확인용 기둥</label>
-      <label class="check"><input id="reduced" type="checkbox">움직임 줄이기</label>
-      <div class="views"><button id="view-iso">사선</button><button id="view-side">측면</button><button id="view-top">위에서</button></div>
+      <h2>Effect controls</h2>
+      <label class="setting"><span>Radius <output id="radiusValue">3.8</output></span><input id="radius" type="range" min="1.5" max="5" step="0.1" value="3.8"></label>
+      <label class="setting"><span>Duration <output id="durationValue">1.60 s</output></span><input id="duration" type="range" min="0.8" max="2.8" step="0.1" value="1.6"></label>
+      <label class="setting"><span>Effect color</span><input id="color" type="color" value="#69e5cd"></label>
+      <label class="setting"><span>Simultaneous effects</span><select id="count"><option value="1">1</option><option value="3">3</option><option value="6">6</option></select></label>
+      <label class="check"><input id="obstacles" type="checkbox" checked>Occlusion pillars</label>
+      <label class="check"><input id="reduced" type="checkbox">Reduced motion</label>
+      <div class="views"><button id="view-iso">Isometric</button><button id="view-side">Side</button><button id="view-top">Top</button></div>
     </aside>
   </div>
-  <div class="toolbar"><button id="play" class="primary">다시 재생</button><button id="pause">멈춤</button><button id="clear">효과 지우기</button><label class="time"><input id="time" type="range" min="0" max="1.6" step="0.001" value="0.42" aria-label="재생 시간"><output id="timeValue">0.420 / 1.60 s</output></label><button id="capture">현재 화면 PNG</button></div>
-  <div class="bottom"><span>구성 <strong>확산 고리 · 반구형 파동 · 입자</strong></span><span>상태 <strong id="stateLabel">확산</strong></span><span>표시 중 <strong id="activeCount">1</strong></span><span>로컬 예제 · 인터넷 연결 불필요</span></div>
+  <div class="toolbar"><button id="play" class="primary">Replay</button><button id="pause">Pause</button><button id="clear">Clear effects</button><label class="time"><input id="time" type="range" min="0" max="1.6" step="0.001" value="0.42" aria-label="Playback time"><output id="timeValue">0.420 / 1.60 s</output></label><button id="capture">Save view PNG</button></div>
+  <div class="bottom"><span>Layers <strong>Expanding rings · Hemisphere · Particles</strong></span><span>State <strong id="stateLabel">Expanding</strong></span><span>Visible <strong id="activeCount">1</strong></span><span>Local example · Works offline</span></div>
   <p id="notice" role="status" aria-live="polite"></p>
 </main>
 <!-- BUNDLE -->

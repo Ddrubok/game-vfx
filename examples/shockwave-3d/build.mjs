@@ -4,10 +4,12 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const bundled = await build({ entryPoints: [path.join(root, 'app.js')], bundle: true, write: false, format: 'iife', target: 'es2020', minify: true, legalComments: 'inline' });
-const template = await readFile(path.join(root, 'template.html'), 'utf8');
 const license = await readFile(path.join(root, 'node_modules/three/LICENSE'), 'utf8');
 const script = bundled.outputFiles[0].text.replace(/<\/script/gi, '<\\/script');
-await writeFile(path.join(root, 'shockwave-3d.html'), template.replace('<!-- BUNDLE -->', () => `<!-- Three.js MIT license\n${license.replace(/--/g, '—')}-->\n<script>${script}</script>`));
+for (const suffix of ['', '.ko']) {
+  const template = await readFile(path.join(root, `template${suffix}.html`), 'utf8');
+  await writeFile(path.join(root, `shockwave-3d${suffix}.html`), template.replace('<!-- BUNDLE -->', () => `<!-- Three.js MIT license\n${license.replace(/--/g, '—')}-->\n<script>${script}</script>`));
+}
 await mkdir(path.join(root, 'vendor'), { recursive: true });
 await copyFile(path.join(root, 'node_modules/three/LICENSE'), path.join(root, 'vendor/LICENSE-three.txt'));
-console.log('Built offline shockwave-3d.html with Three.js 0.187.0');
+console.log('Built English and Korean offline shockwave pages with Three.js 0.187.0');

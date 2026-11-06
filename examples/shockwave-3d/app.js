@@ -2,9 +2,24 @@ import * as THREE from 'three';
 import { createShockwave, disposeSharedGeometry } from './shockwave.js';
 
 const el = id => document.getElementById(id);
+const text = document.documentElement.lang === 'ko' ? {
+  error: '3D 장면을 열지 못했습니다. WebGL2와 하드웨어 가속을 지원하는 브라우저인지 확인하세요. ',
+  canvas: '3D 장면. 드래그 또는 방향키로 회전, 마우스 휠로 확대합니다.',
+  cleared: '지워짐', before: '시작 전', ended: '종료', marker: '확인 고리', expanding: '확산', fading: '소멸',
+  pngError: 'PNG를 생성하지 못했습니다.',
+  pngSaved: '현재 카메라의 2D 화면을 저장합니다. 3D 모델이나 투명 이펙트 내보내기는 아닙니다.',
+  contextLost: '그래픽 연결이 끊어졌습니다. 페이지를 다시 열어 주세요.'
+} : {
+  error: 'Could not open the 3D scene. Check that your browser supports WebGL2 and hardware acceleration. ',
+  canvas: '3D scene. Drag or use arrow keys to orbit; use the mouse wheel to zoom.',
+  cleared: 'Cleared', before: 'Before onset', ended: 'Finished', marker: 'Confirmation ring', expanding: 'Expanding', fading: 'Fading',
+  pngError: 'Could not create the PNG.',
+  pngSaved: 'Saving the current camera view as a 2D image, not a 3D model or transparent effect asset.',
+  contextLost: 'Graphics context lost. Reopen the page.'
+};
 try { initialize(); } catch (error) {
   el('error').hidden = false;
-  el('error').textContent = '3D 장면을 열지 못했습니다. WebGL2와 하드웨어 가속을 지원하는 브라우저인지 확인하세요. ' + error.message;
+  el('error').textContent = text.error + error.message;
   for (const button of document.querySelectorAll('button')) button.disabled = true;
   console.error(error);
 }
@@ -18,7 +33,7 @@ function initialize() {
   renderer.toneMappingExposure = 1.15;
   const canvas = renderer.domElement;
   canvas.tabIndex = 0;
-  canvas.setAttribute('aria-label', '3D 장면. 드래그 또는 방향키로 회전, 마우스 휠로 확대합니다.');
+  canvas.setAttribute('aria-label', text.canvas);
   viewport.append(canvas);
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#18242b');
@@ -92,7 +107,7 @@ function initialize() {
     el('time').value = time;
     el('timeValue').textContent = `${time.toFixed(3)} / ${o.duration.toFixed(2)} s`;
     el('activeCount').textContent = enabled ? effects.filter(effect => effect.group.visible).length : 0;
-    el('stateLabel').textContent = !effects.length ? '지워짐' : time <= 0 ? '시작 전' : time >= o.duration ? '종료' : o.reducedMotion ? '확인 고리' : time / o.duration < 0.55 ? '확산' : '소멸';
+    el('stateLabel').textContent = !effects.length ? text.cleared : time <= 0 ? text.before : time >= o.duration ? text.ended : o.reducedMotion ? text.marker : time / o.duration < 0.55 ? text.expanding : text.fading;
   }
   function stop() { running = false; cancelAnimationFrame(raf); raf = 0; }
   function seek(seconds) { stop(); time = THREE.MathUtils.clamp(Number(seconds) || 0, 0, options().duration); render(); }
@@ -155,11 +170,11 @@ function initialize() {
   el('capture').addEventListener('click', () => {
     render();
     canvas.toBlob(blob => {
-      if (!blob) { el('notice').textContent = 'PNG를 생성하지 못했습니다.'; return; }
+      if (!blob) { el('notice').textContent = text.pngError; return; }
       const url = URL.createObjectURL(blob), link = document.createElement('a');
       link.href = url; link.download = `shockwave-3d-${Math.round(time * 1000)}ms.png`;
       document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
-      el('notice').textContent = '현재 카메라의 2D 화면을 저장합니다. 3D 모델이나 투명 이펙트 내보내기는 아닙니다.';
+      el('notice').textContent = text.pngSaved;
     }, 'image/png');
   });
   const onVisibility = () => { if (document.hidden) stop(); };
@@ -178,7 +193,7 @@ function initialize() {
     disposeSharedGeometry(); renderer.dispose(); destroyed = true;
   }
   window.addEventListener('pagehide', event => { stop(); if (!event.persisted) destroy(); });
-  canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); stop(); el('notice').textContent = '그래픽 연결이 끊어졌습니다. 페이지를 다시 열어 주세요.'; });
+  canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); stop(); el('notice').textContent = text.contextLost; });
   positionCamera(); rebuild(); resize();
   const gl = renderer.getContext(), debug = gl.getExtension('WEBGL_debug_renderer_info');
   window.vfx3d = {

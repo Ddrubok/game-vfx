@@ -1,5 +1,7 @@
 # Practical VFX validation — v0.4.0, 2026-11-05
 
+[English](practical-validation-2026-11-05.md) | [한국어](practical-validation-2026-11-05.ko.md)
+
 Base: `b487d6813209adc26807cc3b553f3f6a0352cadf`. [Snapshot](practical-validation-2026-11-05-snapshot.json) binds the current source, checker and native project files. Historical v0.3.1 results retain their original hashes.
 
 ## What changed

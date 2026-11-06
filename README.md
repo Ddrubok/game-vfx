@@ -2,6 +2,8 @@
 
 [English](README.md) | [한국어](README.ko.md) · **v0.4.2**
 
+Reports and example guides use `.md` for English and `.ko.md` for Korean, with matching links and a language switch. Agent instructions in `SKILL.md` and `references/` are shared English originals. Recorded experiment inputs, result data and historical captures retain their original language.
+
 An AI agent skill for making game effects that fit the project's art direction and actual events. It covers smooth 2D effects, particles, trails, shaders, and 3D effects using the project's renderer.
 
 The agent starts with the game scene or visual references, makes an effect, renders it, inspects the result, and adjusts it. It then checks the requested export or integration. The package contains instructions and an editable 2D example; this repository also includes a standalone 3D example. It is not a catalog of finished effects or a guarantee that every engine is supported.

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Game VFX · 효과 제작 예제</title>
@@ -25,6 +25,7 @@
   #status { min-height: 1.6em; }
 </style>
 <main>
+  <nav aria-label="Language"><a href="?lang=en" lang="en">English</a> · <a href="?lang=ko" lang="ko">한국어</a></nav>
   <small>GAME VFX / EDITABLE CANVAS EXAMPLE</small>
   <h1>게임 이펙트 제작 예제</h1>
   <p>충격파, 방향성 베기, 반복되는 불씨를 비교하고 필요한 크기로 저장하세요. 예제의 스타일은 프로젝트에 맞게 바꿀 수 있습니다.</p>
@@ -57,6 +58,33 @@
 </main>
 <script>
 "use strict";
+const language = new URLSearchParams(location.search).get('lang') === 'ko' ? 'ko' : 'en';
+document.documentElement.lang = language;
+const english = {
+  'Game VFX · 효과 제작 예제': 'Game VFX · Effect creation example',
+  '게임 이펙트 제작 예제': 'Game effect creation example',
+  '충격파, 방향성 베기, 반복되는 불씨를 비교하고 필요한 크기로 저장하세요. 예제의 스타일은 프로젝트에 맞게 바꿀 수 있습니다.': 'Compare impacts, directional slashes and looping embers, then export at the size you need. Adapt the example styles to your project.',
+  '충격파 미리보기': 'Effect preview', 'Canvas를 지원하는 브라우저가 필요합니다.': 'A browser with Canvas support is required.',
+  '효과': 'Effect', '충격파': 'Impact', '방향성 베기': 'Directional slash', '불씨 반복': 'Looping embers',
+  '다시 재생': 'Replay', '멈춤': 'Pause', '시간': 'Time', '색상': 'Color', '시드': 'Seed',
+  '배경': 'Background', '어두움': 'Dark', '밝음': 'Light', '투명 확인': 'Transparency checker',
+  '움직임 줄이기': 'Reduced motion', '출력 크기': 'Export size', '프레임 수': 'Frames', '길이(초)': 'Duration (s)',
+  '현재 장면 PNG': 'Current frame PNG', '전체 시트 PNG': 'Sprite sheet PNG', '시트 정보 JSON': 'Sheet metadata JSON',
+  'PNG에는 배경이 들어가지 않습니다. 각 구간의 중간 장면을 저장합니다. 길이는 충격파·베기의 전체 시간 또는 불씨의 한 주기입니다. 같은 설정에서 PNG와 JSON을 각각 저장하세요. 메모리 표시는 비압축 RGBA8 픽셀의 계산값이며 실제 GPU 사용량은 아닙니다.': 'PNGs exclude the background and sample the midpoint of each frame interval. Duration is the full impact/slash lifetime or one ember cycle. Save PNG and JSON with the same settings. Memory is calculated from uncompressed RGBA8 pixels, not measured GPU usage.',
+  '출력 크기 64–512px, 프레임 4–60장, 길이 0.1–5초와 올바른 색상·시드를 지정하세요.': 'Choose an export size of 64–512 px, 4–60 frames, 0.1–5 seconds, and a valid color and seed.',
+  ' 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인하세요.': ' download requested. Check your browser downloads.',
+  'PNG를 만들지 못했습니다.': 'Could not create the PNG.'
+};
+const translate = value => language === 'en' ? english[value] ?? value : value;
+document.title = translate(document.title);
+const textNodes = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT);
+while (textNodes.nextNode()) {
+  const node = textNodes.currentNode, key = node.textContent.trim();
+  if (Object.hasOwn(english, key)) node.textContent = node.textContent.replace(key, translate(key));
+}
+for (const node of document.querySelectorAll('[aria-label]')) node.setAttribute('aria-label', translate(node.getAttribute('aria-label')));
+document.querySelector('nav').setAttribute('aria-label', language === 'ko' ? '언어' : 'Language');
+document.querySelector(`nav a[lang="${language}"]`).setAttribute('aria-current', 'page');
 const SIZE = 512;
 const EFFECTS = { impact: "smooth-impact", slash: "directional-slash", embers: "ember-loop" };
 const el = id => document.getElementById(id);
@@ -75,7 +103,7 @@ function validateOptions(input = {}) {
       !Number.isInteger(o.frames) || o.frames < 4 || o.frames > 60 ||
       !Number.isFinite(o.duration) || o.duration < .1 || o.duration > 5 ||
       !/^#[\da-f]{6}$/i.test(o.color) || !Number.isFinite(o.seed)) {
-    throw new RangeError("출력 크기 64–512px, 프레임 4–60장, 길이 0.1–5초와 올바른 색상·시드를 지정하세요.");
+    throw new RangeError(translate("출력 크기 64–512px, 프레임 4–60장, 길이 0.1–5초와 올바른 색상·시드를 지정하세요."));
   }
   return o;
 }
@@ -234,12 +262,12 @@ function download(blob, name) {
   const url = URL.createObjectURL(blob), link = document.createElement("a");
   link.href = url; link.download = name; document.body.append(link); link.click(); link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 2000);
-  el("status").textContent = `${name} 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인하세요.`;
+  el("status").textContent = name + translate(' 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인하세요.');
 }
 function png(target, name) {
   target.toBlob(blob => {
     if (blob) download(blob, name);
-    else el("status").textContent = "PNG를 만들지 못했습니다.";
+    else el("status").textContent = translate("PNG를 만들지 못했습니다.");
   }, "image/png");
 }
 el("replay").addEventListener("click", () => safe(play));

@@ -2,11 +2,13 @@
 
 [English](README.md) | [한국어](README.ko.md) · **v0.4.2**
 
+보고서와 예제 안내는 `.md` 영문판과 `.ko.md` 한국어판으로 나누고, 같은 언어의 링크와 전환 링크를 제공합니다. `SKILL.md`와 `references/`의 에이전트 지침은 공통 영문 원본입니다. 실험 입력·결과 데이터·과거 증거 캡처는 기록 당시 언어를 보존합니다.
+
 게임의 아트 스타일과 실제 사건에 맞는 이펙트를 제작하는 AI 에이전트 스킬입니다. 기존 렌더러를 사용해 부드러운 2D 효과, 입자, 궤적, 셰이더, 3D 효과를 만듭니다.
 
 게임 장면이나 참고 이미지를 확인하고, 효과를 만든 뒤 렌더링 결과를 열어 보며 수정합니다. 이후 요청한 내보내기나 게임 연결을 확인합니다. 스킬 패키지에는 지침과 수정 가능한 2D 예제가 있으며, 저장소에는 독립 실행 3D 예제도 포함했습니다. 완성된 효과 모음이나 모든 엔진의 지원을 보장하는 도구는 아닙니다.
 
-![3D 충격파 예제](docs/shockwave-3d.png)
+![3D 충격파 예제](docs/shockwave-3d.ko.png)
 
 ## 예제 실행
 
@@ -14,12 +16,12 @@
 
 | 예제 | 확인할 수 있는 것 |
 | --- | --- |
-| [2D 스타일](assets/canvas-impact.html) | 충격파·베기·반복 불씨, 크기·프레임 수·시간·색상·시드 조절, PNG·전용 JSON 저장 |
-| [Godot 실행 장면](examples/godot-sheet/README.md) | 세 출력을 가져와 종료·일시정지·재시작·소유자 정리 검사 |
-| [이벤트 재생](examples/event-replay/index.html) | 로컬 소유권·정정·종료·라운드 정리. README의 로컬 서버 실행 필요 |
-| [3D 충격파](examples/shockwave-3d/shockwave-3d.html) | 반구형 파동·고리·입자를 카메라로 회전해서 보기, 물체 가림, 1·3·6개 동시 표시 |
+| [2D 스타일](assets/canvas-impact.html?lang=ko) | 충격파·베기·반복 불씨, 크기·프레임 수·시간·색상·시드 조절, PNG·전용 JSON 저장 |
+| [Godot 실행 장면](examples/godot-sheet/README.ko.md) | 세 출력을 가져와 종료·일시정지·재시작·소유자 정리 검사 |
+| [이벤트 재생](examples/event-replay/index.html?lang=ko) | 로컬 소유권·정정·종료·라운드 정리. README의 로컬 서버 실행 필요 |
+| [3D 충격파](examples/shockwave-3d/shockwave-3d.ko.html) | 반구형 파동·고리·입자를 카메라로 회전해서 보기, 물체 가림, 1·3·6개 동시 표시 |
 
-2D·3D 독립 예제는 인터넷 없이 실행됩니다. 이벤트 재생은 로컬 HTTP 서버를 사용합니다. 3D 예제는 WebGL2가 필요합니다. PNG 버튼은 현재 카메라의 화면을 저장하며, 3D 모델이나 투명 효과 에셋을 내보내는 기능은 아닙니다. 수정 방법은 [소스와 빌드 안내](examples/shockwave-3d/README.md)에 있습니다.
+2D·3D 독립 예제는 인터넷 없이 실행됩니다. 이벤트 재생은 로컬 HTTP 서버를 사용합니다. 3D 예제는 WebGL2가 필요합니다. PNG 버튼은 현재 카메라의 화면을 저장하며, 3D 모델이나 투명 효과 에셋을 내보내는 기능은 아닙니다. 수정 방법은 [소스와 빌드 안내](examples/shockwave-3d/README.ko.md)에 있습니다.
 
 ## 게임풍에 맞추는 방법
 
@@ -70,17 +72,17 @@ $game-vfx 제공한 스타일 참고 자료와 이 효과를 비교해 주세요
 - 3D 예제는 조건을 고정한 물체 가림 비교, 재생, 6개 동시 표시, 반복 생성·정리 등 자동 검사 28개를 통과했습니다. 확인한 반복 구간에서 추적한 자원 수가 증가하지 않았습니다.
 - 최종 정지 화면을 직접 열어 확인했습니다. 연결된 스킬 지침의 메타데이터·상대 링크·공백 오류도 검사했습니다.
 
-결과는 기록한 예제와 조건에 한정됩니다. 움직임의 주관적인 질, 모든 메모리 누수의 부재, 휴대폰 성능, Unity·Godot·Unreal·Flutter의 일반적인 연동을 입증하지 않습니다. 아래 v0.4.0 Godot 장면은 제한된 별도 엔진 실행 기록입니다. **새 스타일 연계의 독립적인 전체 실행 평가는 NOT RUN(미실행)입니다.** 근거와 한계는 [검증 기록](docs/validation.md)에 있습니다.
+결과는 기록한 예제와 조건에 한정됩니다. 움직임의 주관적인 질, 모든 메모리 누수의 부재, 휴대폰 성능, Unity·Godot·Unreal·Flutter의 일반적인 연동을 입증하지 않습니다. 아래 v0.4.0 Godot 장면은 제한된 별도 엔진 실행 기록입니다. **새 스타일 연계의 독립적인 전체 실행 평가는 NOT RUN(미실행)입니다.** 근거와 한계는 [검증 기록](docs/validation.ko.md)에 있습니다.
 
 ## v0.3.1 변경
 
 재생 시간과 구간 중간의 표본 시점을 구분하여 첫 저장 프레임이 비는 문제를 고쳤습니다. 선택적으로 사용하는 이벤트 어댑터·실제 렌더링 재생 예제, 이식 가능한 Canvas 검사기, 엔진 판별·가져오기 안내, **NOT RUN(미실행)**으로 표시한 Godot 참조 코드를 추가했습니다. 종료된 효과는 높은 revision으로도 다시 나타나지 않고, 콜백은 소유자의 재사용 세대를 구분합니다. 일반 알파 합성과 단일 충격파 스타일은 예제의 범위로 유지했습니다.
 
-로컬 이벤트 어댑터는 Node 검사 13개와 브라우저 검사 11개를 통과했습니다. 수정된 bettermakegame 공통 예제도 13개 검사를 통과했습니다. 이전 9개 검사 기록은 놓친 회귀를 명시해 보존했습니다. 이 통과 결과로 엔진 참조 코드·실제 네트워크/기기·스킬 전달 행동을 검증했다고 보지 않습니다. [수정 기록](docs/feedback-repair-2026-11-05.md), [Canvas 검사기](examples/canvas-verification/README.md), [이벤트 재생](examples/event-replay/README.md)에 근거와 실행법이 있습니다.
+로컬 이벤트 어댑터는 Node 검사 13개와 브라우저 검사 11개를 통과했습니다. 수정된 bettermakegame 공통 예제도 13개 검사를 통과했습니다. 이전 9개 검사 기록은 놓친 회귀를 명시해 보존했습니다. 이 통과 결과로 엔진 참조 코드·실제 네트워크/기기·스킬 전달 행동을 검증했다고 보지 않습니다. [수정 기록](docs/feedback-repair-2026-11-05.ko.md), [Canvas 검사기](examples/canvas-verification/README.ko.md), [이벤트 재생](examples/event-replay/README.ko.md)에 근거와 실행법이 있습니다.
 
 ## v0.3.0 변경
 
-v0.3.0에는 [이벤트 연결 안내](references/event-integration.md)를 추가했습니다. 처리 중·확정 신호, 중복·순서가 바뀐 이벤트, 결과 정정, 소유자·라운드 종료를 다룹니다. kill-game-slop의 발견 사항은 직접 받거나 bettermakegame의 제작 기준을 거쳐 받을 수 있으며, 두 경로 모두 판단 유형·작업 범위·증거의 한계를 유지합니다. 작은 효과 하나에 세 스킬을 모두 쓸 필요는 없습니다. 검사와 미실행 평가는 [업데이트 기록](docs/update-2026-11-05.md)에 있으며, 이전 예제 결과는 새 지침의 검증 결과가 아닙니다.
+v0.3.0에는 [이벤트 연결 안내](references/event-integration.md)를 추가했습니다. 처리 중·확정 신호, 중복·순서가 바뀐 이벤트, 결과 정정, 소유자·라운드 종료를 다룹니다. kill-game-slop의 발견 사항은 직접 받거나 bettermakegame의 제작 기준을 거쳐 받을 수 있으며, 두 경로 모두 판단 유형·작업 범위·증거의 한계를 유지합니다. 작은 효과 하나에 세 스킬을 모두 쓸 필요는 없습니다. 검사와 미실행 평가는 [업데이트 기록](docs/update-2026-11-05.ko.md)에 있으며, 이전 예제 결과는 새 지침의 검증 결과가 아닙니다.
 
 ## 파일과 라이선스
 
@@ -95,16 +97,16 @@ v0.3.0에는 [이벤트 연결 안내](references/event-integration.md)를 추�
 
 ## 실제 적용 후속 작업 — 2026-11-05
 
-[현재 수정·검증 기록](docs/practical-validation-2026-11-05.md)에 이전 라운드의 늦은 종료 콜백 수정, 실제 게임 구성요소 수리, 새 Astra 4세션 비교를 정리했습니다. 과거 결과는 보존했습니다. 짧은 지침과 전체 스킬 모두 선택 과제를 고쳤고 정상 축하 화면은 유지했습니다. 추가 정확도 우위는 확인되지 않았습니다. 원본 게임 프로젝트는 수정하지 않았습니다. 사람·실기기·네트워크와 별도 U/V·전달 평가 묶음은 미실행입니다.
+[현재 수정·검증 기록](docs/practical-validation-2026-11-05.ko.md)에 이전 라운드의 늦은 종료 콜백 수정, 실제 게임 구성요소 수리, 새 Astra 4세션 비교를 정리했습니다. 과거 결과는 보존했습니다. 짧은 지침과 전체 스킬 모두 선택 과제를 고쳤고 정상 축하 화면은 유지했습니다. 추가 정확도 우위는 확인되지 않았습니다. 원본 게임 프로젝트는 수정하지 않았습니다. 사람·실기기·네트워크와 별도 U/V·전달 평가 묶음은 미실행입니다.
 
 ## v0.4.0 변경
 
-[2D 예제](assets/canvas-impact.html)에서 충격파·베기·반복 불씨를 선택하고 해상도·프레임 수·지속 시간을 조절합니다. [Godot 4.4.1 프로젝트](examples/godot-sheet/README.md)는 세 출력을 가져와 실행하며 네이티브 검사 16개를 통과했습니다. 기본 Canvas 25개, 변형 출력 18개, 로컬 이벤트 13개, 렌더링 재생 11개도 통과했습니다. 예제 검사이며 모든 엔진 지원이나 스타일 품질의 입증은 아닙니다. 작은 시트의 RGBA8 픽셀 데이터는 0.75–1MiB, 기본값은 20MiB입니다. 실제 GPU 메모리나 같은 체감 품질은 측정하지 않았습니다.
+[2D 예제](assets/canvas-impact.html?lang=ko)에서 충격파·베기·반복 불씨를 선택하고 해상도·프레임 수·지속 시간을 조절합니다. [Godot 4.4.1 프로젝트](examples/godot-sheet/README.ko.md)는 세 출력을 가져와 실행하며 네이티브 검사 16개를 통과했습니다. 기본 Canvas 25개, 변형 출력 18개, 로컬 이벤트 13개, 렌더링 재생 11개도 통과했습니다. 예제 검사이며 모든 엔진 지원이나 스타일 품질의 입증은 아닙니다. 작은 시트의 RGBA8 픽셀 데이터는 0.75–1MiB, 기본값은 20MiB입니다. 실제 GPU 메모리나 같은 체감 품질은 측정하지 않았습니다.
 
-[2026-11-06 review follow-up / v0.4.1](docs/review-followup-2026-11-06.md): input validation, bounded events, atomic Godot import, timing checks and non-color state cues.
+[2026-11-06 review follow-up / v0.4.1](docs/review-followup-2026-11-06.ko.md): input validation, bounded events, atomic Godot import, timing checks and non-color state cues.
 
-[Paired comparison and score tables / 2026-11-06](docs/comparison-2026-11-06.md): 12 sessions; both conditions passed 90/90 functional checks. The single blinded style review preferred the baseline; no general skill advantage was established.
+[Paired comparison and score tables / 2026-11-06](docs/comparison-2026-11-06.ko.md): 12 sessions; both conditions passed 90/90 functional checks. The single blinded style review preferred the baseline; no general skill advantage was established.
 
-[2026-11-06 recheck corrections](docs/recheck-followup-2026-11-06.md): shared local server, coordinate normalization, complete comparison coverage and preserved callback counterexample.
+[2026-11-06 recheck corrections](docs/recheck-followup-2026-11-06.ko.md): shared local server, coordinate normalization, complete comparison coverage and preserved callback counterexample.
 
-[Unity engine experiment / 2026-11-06](docs/unity-experiment-2026-11-06.md): two installed Unity versions, 32/32 functional checks each; overall runs retain an Editor Search exception. Includes an actual GPU-rendered scene and the NPOT import correction.
+[Unity engine experiment / 2026-11-06](docs/unity-experiment-2026-11-06.ko.md): two installed Unity versions, 32/32 functional checks each; overall runs retain an Editor Search exception. Includes an actual GPU-rendered scene and the NPOT import correction.

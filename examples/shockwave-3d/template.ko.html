@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game VFX · 3D 충격파 실험</title>
+<style>
+  :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #11171c; color: #e8eae7; }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  nav { margin-bottom: 18px; font-size: 13px; }
+  nav a { color: #a9ddcc; }
+  main { max-width: 1440px; margin: auto; padding: 30px 32px; }
+  header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-end; margin-bottom: 25px; }
+  .eyebrow { color: #97b4ac; font-size: 11px; letter-spacing: .15em; }
+  h1 { font-weight: 550; font-size: clamp(25px,3vw,38px); letter-spacing: -.04em; margin: 10px 0; }
+  p { color: #aeb9bf; font-size: 14px; line-height: 1.7; margin: 0; }
+  .badge { border: 1px solid #425850; padding: 7px 11px; border-radius: 5px; color: #a9ddcc; font-size: 12px; white-space: nowrap; }
+  .workspace { display: grid; grid-template-columns: minmax(0,1fr) 264px; border: 1px solid #344149; border-radius: 10px; overflow: hidden; }
+  #viewport { min-height: 530px; height: min(64vh,680px); position: relative; background: #18242b; }
+  #viewport canvas { width: 100%; height: 100%; display: block; touch-action: none; }
+  .view-note { position: absolute; top: 18px; left: 20px; pointer-events: none; color: #c2cece; font-size: 12px; }
+  #error { padding: 22px; color: #f6c2a4; }
+  aside { padding: 23px 21px; background: #192127; border-left: 1px solid #344149; }
+  h2 { font-size: 13px; font-weight: 600; margin: 0 0 18px; }
+  label.setting { display: block; font-size: 12px; color: #bac5c8; margin: 22px 0; }
+  label.setting > span { display: flex; justify-content: space-between; margin-bottom: 11px; }
+  input, select, button { font: inherit; }
+  input[type=range] { width: 100%; accent-color: #a3dbbf; }
+  select { width: 100%; background: #202c33; color: #e8eae7; border: 1px solid #4b5d66; padding: 9px; border-radius: 4px; }
+  input[type=color] { width: 100%; height: 33px; border: 0; background: none; padding: 0; }
+  .check { font-size: 12px; color: #c0c9cc; display: flex; gap: 8px; align-items: center; margin: 17px 0; }
+  .check input { accent-color: #a3dbbf; }
+  button { border: 1px solid #47585e; background: #212e34; color: #e1e7e5; padding: 9px 13px; border-radius: 5px; cursor: pointer; font-size: 12px; }
+  button:hover { background: #33454c; }
+  button.primary { background: #b6ddc8; color: #142a22; border-color: #b6ddc8; font-weight: 650; }
+  button:disabled { opacity: .4; cursor: default; }
+  :focus-visible { outline: 2px solid #d5b17b; outline-offset: 4px; }
+  .views { display: flex; flex-wrap: wrap; gap: 6px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 11px; align-items: center; padding: 17px 0; }
+  .time { display: flex; gap: 12px; align-items: center; flex: 1; min-width: 220px; margin: 0 10px; }
+  .time input { flex: 1; }
+  output { font-variant-numeric: tabular-nums; white-space: nowrap; color: #c8d6d2; font-size: 12px; }
+  .bottom { display: flex; flex-wrap: wrap; gap: 12px 30px; padding: 16px 0; border-top: 1px solid #344149; font-size: 12px; color: #8e9ca4; }
+  .bottom strong { font-weight: 500; color: #d3ded9; }
+  #notice { min-height: 24px; color: #bdcec6; font-size: 12px; }
+  @media(max-width: 780px) { main { padding: 20px 15px; } header { align-items: flex-start; } .badge { display:none; } .workspace { grid-template-columns: 1fr; } #viewport { min-height: 330px; height: 48vh; } aside { border-left: 0; border-top: 1px solid #344149; display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; } aside h2, aside .views { grid-column: 1/-1; } label.setting { margin: 12px 0; } }
+</style>
+</head>
+<body>
+<main>
+  <nav aria-label="언어"><a href="shockwave-3d.html" lang="en">English</a> · <a href="shockwave-3d.ko.html" lang="ko" aria-current="page">한국어</a></nav>
+  <header><div><div class="eyebrow">GAME VFX / STUDY 02</div><h1>공간을 가르는 충격파</h1><p>시점을 돌려 파동의 높이와 기둥 뒤로 가려지는 부분을 확인하세요.</p></div><span class="badge">3D · WebGL</span></header>
+  <div class="workspace">
+    <section id="viewport" aria-label="3D 충격파 실험 장면"><div class="view-note">드래그: 회전 · 휠: 확대 · 방향키: 회전</div><p id="error" hidden></p></section>
+    <aside>
+      <h2>효과 조절</h2>
+      <label class="setting"><span>퍼지는 반경 <output id="radiusValue">3.8</output></span><input id="radius" type="range" min="1.5" max="5" step="0.1" value="3.8"></label>
+      <label class="setting"><span>지속 시간 <output id="durationValue">1.60 s</output></span><input id="duration" type="range" min="0.8" max="2.8" step="0.1" value="1.6"></label>
+      <label class="setting"><span>효과 색상</span><input id="color" type="color" value="#69e5cd"></label>
+      <label class="setting"><span>동시에 표시할 효과</span><select id="count"><option value="1">1개</option><option value="3">3개</option><option value="6">6개</option></select></label>
+      <label class="check"><input id="obstacles" type="checkbox" checked>가림 확인용 기둥</label>
+      <label class="check"><input id="reduced" type="checkbox">움직임 줄이기</label>
+      <div class="views"><button id="view-iso">사선</button><button id="view-side">측면</button><button id="view-top">위에서</button></div>
+    </aside>
+  </div>
+  <div class="toolbar"><button id="play" class="primary">다시 재생</button><button id="pause">멈춤</button><button id="clear">효과 지우기</button><label class="time"><input id="time" type="range" min="0" max="1.6" step="0.001" value="0.42" aria-label="재생 시간"><output id="timeValue">0.420 / 1.60 s</output></label><button id="capture">현재 화면 PNG</button></div>
+  <div class="bottom"><span>구성 <strong>확산 고리 · 반구형 파동 · 입자</strong></span><span>상태 <strong id="stateLabel">확산</strong></span><span>표시 중 <strong id="activeCount">1</strong></span><span>로컬 예제 · 인터넷 연결 불필요</span></div>
+  <p id="notice" role="status" aria-live="polite"></p>
+</main>
+<!-- BUNDLE -->
+</body>
+</html>
