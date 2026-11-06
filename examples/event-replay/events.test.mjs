@@ -87,6 +87,16 @@ test('input and snapshot coordinates are copied; frozen events remain unchanged'
   assert.equal(p.snapshot()[0].point.x, 10);
   assert.equal(e.point.x, 10);
 });
+
+test('coordinates retain only x/y, excluding large or shared extra data', () => {
+  const p = new ImpactEvents({ maxActive: 1, maxHistory: 1 });
+  const point = { x: 1, y: 2, extra: { payload: 'X'.repeat(1000000) } };
+  p.receive(event({ point }));
+  assert.deepEqual(p.active.get('hit').point, { x: 1, y: 2 });
+  assert.deepEqual(p.snapshot()[0].point, { x: 1, y: 2 });
+  p.snapshot()[0].point.x = 99;
+  assert.equal(p.active.get('hit').point.x, 1);
+});
 test('invalid lifetime, time, revision or position is rejected', () => {
   assert.throws(() => new ImpactEvents({ duration: 0 }));
   const p = new ImpactEvents();

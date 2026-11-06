@@ -8,7 +8,7 @@ description: >-
   VFX, particles, shockwaves, or sprite-sheet export. Not a general game
   generator, whole-game polish audit, or cinematic video production skill.
 metadata:
-  version: "0.4.1"
+  version: "0.4.2"
 ---
 
 # Game VFX

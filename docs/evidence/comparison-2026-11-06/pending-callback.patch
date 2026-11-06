@@ -1,0 +1,10 @@
+--- a/runs/8c3d3cb5/event-impact.mjs
++++ b/runs/8c3d3cb5/event-impact.mjs
+@@ -69,6 +69,6 @@
+     if (!record || record.finished || !this.active.has(token.id) ||
+         token.phase !== record.phase) return false;
+-    record.finished = true;
++    record.finished = record.state === 'confirmed';
+     this.active.delete(token.id);
+     return true; // Deduplication survives until round teardown.
+   }

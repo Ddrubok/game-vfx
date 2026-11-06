@@ -1,0 +1,152 @@
+{
+    "engine": "6000.5.7f1",
+    "gpu": "NVIDIA GeForce RTX 3080 Laptop GPU",
+    "graphicsApi": "Direct3D11",
+    "platform": "WindowsEditor",
+    "scope": "Unity Editor Play Mode, synthetic scene; not a shipped game or device benchmark",
+    "passed": false,
+    "checks": [
+        {
+            "name": "impact duration metadata",
+            "passed": true
+        },
+        {
+            "name": "impact original texture dimensions",
+            "passed": true
+        },
+        {
+            "name": "impact pivot",
+            "passed": true
+        },
+        {
+            "name": "slash duration metadata",
+            "passed": true
+        },
+        {
+            "name": "slash original texture dimensions",
+            "passed": true
+        },
+        {
+            "name": "slash pivot",
+            "passed": true
+        },
+        {
+            "name": "embers duration metadata",
+            "passed": true
+        },
+        {
+            "name": "embers original texture dimensions",
+            "passed": true
+        },
+        {
+            "name": "embers pivot",
+            "passed": true
+        },
+        {
+            "name": "one shots complete",
+            "passed": true
+        },
+        {
+            "name": "loop survives multiple periods",
+            "passed": true
+        },
+        {
+            "name": "pause preserves frame and time",
+            "passed": true
+        },
+        {
+            "name": "resume advances",
+            "passed": true
+        },
+        {
+            "name": "dark render has visible effects",
+            "passed": true
+        },
+        {
+            "name": "light render has visible effects",
+            "passed": true
+        },
+        {
+            "name": "cancel clears renderer",
+            "passed": true
+        },
+        {
+            "name": "impact timing 0",
+            "passed": true
+        },
+        {
+            "name": "slash timing 0",
+            "passed": true
+        },
+        {
+            "name": "impact timing 1",
+            "passed": true
+        },
+        {
+            "name": "slash timing 1",
+            "passed": true
+        },
+        {
+            "name": "impact timing 2",
+            "passed": true
+        },
+        {
+            "name": "slash timing 2",
+            "passed": true
+        },
+        {
+            "name": "overlapping instances render",
+            "passed": true
+        },
+        {
+            "name": "all overlapping instances finish",
+            "passed": true
+        },
+        {
+            "name": "owner removal preserves other owner",
+            "passed": true
+        },
+        {
+            "name": "native burst count",
+            "passed": true
+        },
+        {
+            "name": "native particles rendered",
+            "passed": true
+        },
+        {
+            "name": "native particles expire",
+            "passed": true
+        },
+        {
+            "name": "native particle budget",
+            "passed": true
+        },
+        {
+            "name": "native cancellation clears particles",
+            "passed": true
+        },
+        {
+            "name": "owner cleanup",
+            "passed": true
+        },
+        {
+            "name": "simulation clock unchanged",
+            "passed": true
+        }
+    ],
+    "errors": [
+        "ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index"
+    ],
+    "impactSeconds": [
+        0.6001334190368652,
+        0.6000895500183106,
+        0.6000170707702637
+    ],
+    "slashSeconds": [
+        0.4000554084777832,
+        0.4002232551574707,
+        0.4000711441040039
+    ],
+    "maxFrameSeconds": 0.07046870142221451
+}

@@ -8,12 +8,12 @@ From the repository root / 저장소 루트에서:
 
 ```sh
 node --test examples/event-replay/events.test.mjs
-python -m http.server 8000 --bind 127.0.0.1
+node examples/event-replay/server.mjs
 ```
 
-Use an installed Python 3 executable or an existing local HTTP server. Open `http://127.0.0.1:8000/examples/event-replay/`; file URLs cannot reliably import modules or access the shared iframe. Stop the server after use. The rendered checker starts its own temporary local server:
+Open `http://127.0.0.1:8000/examples/event-replay/index.html`. This Node server uses the same allowlist and real-path check as the rendered checker. Stop it after use; file URLs cannot reliably import modules or access the shared iframe. The rendered checker starts its own temporary local server:
 
-설치된 Python 3 또는 기존 로컬 HTTP 서버를 사용하세요. 위 주소로 열고 사용 후 서버를 종료하세요. 파일 URL은 모듈·iframe 접근이 제한됩니다. 브라우저 검사는 자체 임시 로컬 서버를 시작하고 종료합니다.
+위 Node 명령은 브라우저 검사와 같은 허용 목록·실경로 검사를 사용합니다. 위 주소로 열고 사용 후 서버를 종료하세요. 파일 URL은 모듈·iframe 접근이 제한됩니다. 브라우저 검사는 자체 임시 로컬 서버를 시작하고 종료합니다.
 
 ```sh
 node examples/event-replay/verify.mjs /path/to/output

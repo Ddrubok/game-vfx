@@ -38,7 +38,7 @@ export class ImpactEvents {
     this.history.set(e.id, record);
     if (record.finished) this.active.delete(e.id);
     else {
-      this.active.set(e.id, { kind: e.state === 'pending' ? 'preview' : 'impact', point: { ...e.point } });
+      this.active.set(e.id, { kind: e.state === 'pending' ? 'preview' : 'impact', point: { x: e.point.x, y: e.point.y } });
       if (e.state === 'confirmed' && !confirmedBefore) this.bursts++;
     }
     return true;

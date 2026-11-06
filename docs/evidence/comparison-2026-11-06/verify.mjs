@@ -3,17 +3,20 @@ import path from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
 import {createServer} from 'node:http';
 import {createRequire} from 'node:module';
-import {execFileSync} from 'node:child_process';
+import {staticHandler} from '../../../examples/event-replay/server.mjs';
+import {selectCases, comparisonRoutes, assertResults} from './checks.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const {mapping}=JSON.parse(await fs.readFile(path.join(root,'manifest.json'),'utf8'));
+const execution=JSON.parse(await fs.readFile(path.join(root,'execution.json'),'utf8'));
+const selected=selectCases(mapping,execution);
+const expected=JSON.parse(await fs.readFile(path.join(root,'verification.json'),'utf8'));
 const require=createRequire(path.join(path.resolve(process.env.VFX_TOOL_ROOT || root), 'package.json'));
 const {chromium}=require('playwright');
-const browser=await chromium.launch({headless:true});
-const server=createServer(async(req,res)=>{try{const u=new URL(req.url,'http://localhost');const p=path.resolve(root,'.'+u.pathname);if(!p.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',p.endsWith('.mjs')?'text/javascript':'text/html');res.end(await fs.readFile(p));}catch{res.writeHead(404).end();}});
+const browser=await chromium.launch({headless:true, ...(process.env.VFX_BROWSER_PATH ? {executablePath:process.env.VFX_BROWSER_PATH} : {})});
+const server=createServer(await staticHandler(root,comparisonRoutes(selected)));
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const all=[];
-const completed=JSON.parse(await fs.readFile(path.join(root,'execution.json'),'utf8')).map(x=>x.label);
-try{for(const m of mapping.filter(x=>x.kind!=='godot'&&completed.includes(x.label)&&!all.some(y=>y.label===x.label))){
+try{for(const m of selected){
  const dir=path.join(root,'runs',m.label),checks=[],errors=[];
  const check=(name,value)=>checks.push({name,pass:!!value});
  try{
@@ -75,4 +78,5 @@ try{for(const m of mapping.filter(x=>x.kind!=='godot'&&completed.includes(x.labe
 await fs.writeFile(path.join(root,'recheck-verification.json'),JSON.stringify(all,null,2));
 console.log(all.map(x=>({task:x.task,label:x.label,pass:x.checks.filter(c=>c.pass).length,total:x.checks.length,errors:x.errors.length})));
 
+assertResults(all,expected);
 if(all.some(x=>x.errors.length||x.checks.some(c=>!c.pass)))process.exitCode=1;

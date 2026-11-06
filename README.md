@@ -1,6 +1,6 @@
 # Game VFX
 
-[English](README.md) | [한국어](README.ko.md) · **v0.4.0**
+[English](README.md) | [한국어](README.ko.md) · **v0.4.2**
 
 An AI agent skill for making game effects that fit the project's art direction and actual events. It covers smooth 2D effects, particles, trails, shaders, and 3D effects using the project's renderer.
 
@@ -104,3 +104,7 @@ The [2D example](assets/canvas-impact.html) now exports impact, ribbon slash and
 [2026-11-06 review follow-up / v0.4.1](docs/review-followup-2026-11-06.md): input validation, bounded events, atomic Godot import, timing checks and non-color state cues.
 
 [Paired comparison and score tables / 2026-11-06](docs/comparison-2026-11-06.md): 12 sessions; both conditions passed 90/90 functional checks. The single blinded style review preferred the baseline; no general skill advantage was established.
+
+[2026-11-06 recheck corrections](docs/recheck-followup-2026-11-06.md): shared local server, coordinate normalization, complete comparison coverage and preserved callback counterexample.
+
+[Unity engine experiment / 2026-11-06](docs/unity-experiment-2026-11-06.md): two installed Unity versions, 32/32 functional checks each; overall runs retain an Editor Search exception. Includes an actual GPU-rendered scene and the NPOT import correction.
