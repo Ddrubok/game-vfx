@@ -1,0 +1,3 @@
+Replace the one-shot with a seamless 1.2 second ambient ember loop using the same drawEffect API (duration=1.2, loop=true). Use five softly rising ochre embers on transparent background, bounded inside 256x256. The loop seam must be continuous, seeking deterministic; it must stay active after several periods. Reduced motion must show a stable static cue.
+
+Visual API when relevant: drawEffect(ctx,timeSeconds,options) on transparent 256x256 canvas; options={state,reducedMotion}. Export numeric duration and boolean loop. Do not modify preview.html. Write a concise result.json with actual checks, remaining limits, files read, and number of revisions. Only local work; no commits or network dependencies.

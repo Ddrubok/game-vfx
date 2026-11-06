@@ -1,0 +1,458 @@
+[
+  {
+    "label": "a6acd667",
+    "task": "godot",
+    "condition": "baseline",
+    "kind": "godot",
+    "source": "example adapter",
+    "importExit": 0,
+    "runExit": 0,
+    "checks": [
+      {
+        "name": "impact imported",
+        "pass": true
+      },
+      {
+        "name": "impact duration and loop",
+        "pass": true
+      },
+      {
+        "name": "slash imported",
+        "pass": true
+      },
+      {
+        "name": "slash duration and loop",
+        "pass": true
+      },
+      {
+        "name": "embers imported",
+        "pass": true
+      },
+      {
+        "name": "embers duration and loop",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 0",
+        "pass": true
+      },
+      {
+        "name": "state preserved 0",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 1",
+        "pass": true
+      },
+      {
+        "name": "state preserved 1",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 2",
+        "pass": true
+      },
+      {
+        "name": "state preserved 2",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 3",
+        "pass": true
+      },
+      {
+        "name": "state preserved 3",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 4",
+        "pass": true
+      },
+      {
+        "name": "state preserved 4",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 5",
+        "pass": true
+      },
+      {
+        "name": "state preserved 5",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 6",
+        "pass": true
+      },
+      {
+        "name": "state preserved 6",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 7",
+        "pass": true
+      },
+      {
+        "name": "state preserved 7",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 8",
+        "pass": true
+      },
+      {
+        "name": "state preserved 8",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 9",
+        "pass": true
+      },
+      {
+        "name": "state preserved 9",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 10",
+        "pass": true
+      },
+      {
+        "name": "state preserved 10",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 11",
+        "pass": true
+      },
+      {
+        "name": "state preserved 11",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 12",
+        "pass": true
+      },
+      {
+        "name": "state preserved 12",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 13",
+        "pass": true
+      },
+      {
+        "name": "state preserved 13",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 14",
+        "pass": true
+      },
+      {
+        "name": "state preserved 14",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 15",
+        "pass": true
+      },
+      {
+        "name": "state preserved 15",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 16",
+        "pass": true
+      },
+      {
+        "name": "state preserved 16",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 17",
+        "pass": true
+      },
+      {
+        "name": "state preserved 17",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 18",
+        "pass": true
+      },
+      {
+        "name": "state preserved 18",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 19",
+        "pass": true
+      },
+      {
+        "name": "state preserved 19",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 20",
+        "pass": true
+      },
+      {
+        "name": "state preserved 20",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 21",
+        "pass": true
+      },
+      {
+        "name": "state preserved 21",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 22",
+        "pass": true
+      },
+      {
+        "name": "state preserved 22",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 23",
+        "pass": true
+      },
+      {
+        "name": "state preserved 23",
+        "pass": true
+      }
+    ],
+    "scriptErrors": false
+  },
+  {
+    "label": "86d4df44",
+    "task": "godot",
+    "condition": "full",
+    "kind": "godot",
+    "source": "example adapter",
+    "importExit": 0,
+    "runExit": 0,
+    "checks": [
+      {
+        "name": "impact imported",
+        "pass": true
+      },
+      {
+        "name": "impact duration and loop",
+        "pass": true
+      },
+      {
+        "name": "slash imported",
+        "pass": true
+      },
+      {
+        "name": "slash duration and loop",
+        "pass": true
+      },
+      {
+        "name": "embers imported",
+        "pass": true
+      },
+      {
+        "name": "embers duration and loop",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 0",
+        "pass": true
+      },
+      {
+        "name": "state preserved 0",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 1",
+        "pass": true
+      },
+      {
+        "name": "state preserved 1",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 2",
+        "pass": true
+      },
+      {
+        "name": "state preserved 2",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 3",
+        "pass": true
+      },
+      {
+        "name": "state preserved 3",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 4",
+        "pass": true
+      },
+      {
+        "name": "state preserved 4",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 5",
+        "pass": true
+      },
+      {
+        "name": "state preserved 5",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 6",
+        "pass": true
+      },
+      {
+        "name": "state preserved 6",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 7",
+        "pass": true
+      },
+      {
+        "name": "state preserved 7",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 8",
+        "pass": true
+      },
+      {
+        "name": "state preserved 8",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 9",
+        "pass": true
+      },
+      {
+        "name": "state preserved 9",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 10",
+        "pass": true
+      },
+      {
+        "name": "state preserved 10",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 11",
+        "pass": true
+      },
+      {
+        "name": "state preserved 11",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 12",
+        "pass": true
+      },
+      {
+        "name": "state preserved 12",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 13",
+        "pass": true
+      },
+      {
+        "name": "state preserved 13",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 14",
+        "pass": true
+      },
+      {
+        "name": "state preserved 14",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 15",
+        "pass": true
+      },
+      {
+        "name": "state preserved 15",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 16",
+        "pass": true
+      },
+      {
+        "name": "state preserved 16",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 17",
+        "pass": true
+      },
+      {
+        "name": "state preserved 17",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 18",
+        "pass": true
+      },
+      {
+        "name": "state preserved 18",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 19",
+        "pass": true
+      },
+      {
+        "name": "state preserved 19",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 20",
+        "pass": true
+      },
+      {
+        "name": "state preserved 20",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 21",
+        "pass": true
+      },
+      {
+        "name": "state preserved 21",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 22",
+        "pass": true
+      },
+      {
+        "name": "state preserved 22",
+        "pass": true
+      },
+      {
+        "name": "invalid rejected 23",
+        "pass": true
+      },
+      {
+        "name": "state preserved 23",
+        "pass": true
+      }
+    ],
+    "scriptErrors": false
+  }
+]

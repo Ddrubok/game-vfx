@@ -10,7 +10,7 @@ button { margin: 8px 8px 8px 0; padding: 10px; font: inherit; }
 output { display: block; } iframe { display: none; }
 </style>
 <h1>Event lifetime replay</h1>
-<p>Local synthetic input. Amber is provisional; teal is confirmed. A correction moves a live cue without restarting it. A finished cue stays finished.</p>
+<p>Local synthetic input. A small dashed ring is pending; a solid diamond and impact are confirmed. A correction moves a live cue without restarting it. A finished cue stays finished.</p>
 <canvas id="scene" width="512" height="512" aria-label="Event effect"></canvas>
 <button id="replay">Replay pending → confirmed → correction</button>
 <button id="late">Late correction</button><button id="round">Next round</button>
@@ -28,11 +28,22 @@ const send = (changes = {}) => owner.receive({ id: 'hit', round: owner.round,
 function render() {
   ctx.clearRect(0, 0, 512, 512);
   for (const cue of owner.snapshot()) {
-    const image = vfx.frameAt(cue.age, { color: cue.kind === 'preview' ? '#d89032' : '#29b8ad', seed: 23,
+    if (cue.kind === 'impact') {
+    const image = vfx.frameAt(cue.age, { color: '#29b8ad', seed: 23,
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches });
     ctx.drawImage(image, cue.point.x - 256, cue.point.y - 256);
+    }
+    ctx.save(); ctx.translate(cue.point.x, cue.point.y); ctx.lineWidth = 3;
+    ctx.strokeStyle = cue.kind === 'preview' ? '#d89032' : '#29b8ad';
+    ctx.beginPath();
+    if (cue.kind === 'preview') {
+      ctx.setLineDash([4, 4]); ctx.arc(0, 0, 12, 0, Math.PI * 2);
+    } else {
+      ctx.moveTo(0, -22); ctx.lineTo(22, 0); ctx.lineTo(0, 22); ctx.lineTo(-22, 0); ctx.closePath();
+    }
+    ctx.stroke(); ctx.restore();
   }
-  document.querySelector('#status').textContent = `${owner.round}; active ${owner.active.size}; bursts ${owner.bursts}; owner ${owner.closed ? 'disposed' : 'live'}`;
+  document.querySelector('#status').textContent = `${owner.round}; pending ${owner.snapshot().filter(c => c.kind === 'preview').length}; confirmed ${owner.snapshot().filter(c => c.kind === 'impact').length}; bursts ${owner.bursts}; owner ${owner.closed ? 'disposed' : 'live'}`;
 }
 function stop() { cancelAnimationFrame(raf); raf = 0; }
 function reset() { stop(); owner.dispose(); owner = new ImpactEvents({ round: `round-${++generation}` }); render(); }

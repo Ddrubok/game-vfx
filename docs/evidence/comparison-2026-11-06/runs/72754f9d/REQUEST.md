@@ -1,0 +1,3 @@
+Create a 0.6 second impact cue for the supplied paper-garden scene. It marks an authoritative seed landing. Match the scene: flat ink outlines, muted sage/ochre, asymmetric leaf shards, no neon/glow/white flash/camera shake. At 64px display size it should read as a brief landing puff, not a radial sci-fi ring. Keep transparent background and finish cleanly. Reuse the drawEffect API, export duration=0.6 and loop=false.
+
+Visual API when relevant: drawEffect(ctx,timeSeconds,options) on transparent 256x256 canvas; options={state,reducedMotion}. Export numeric duration and boolean loop. Do not modify preview.html. Write a concise result.json with actual checks, remaining limits, files read, and number of revisions. Only local work; no commits or network dependencies.

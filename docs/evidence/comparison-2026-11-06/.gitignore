@@ -1,0 +1,8 @@
+recheck/
+recheck-*.json
+runs/*/.godot/
+runs/*/heldout.gd*
+runs/*/heldout-results.json
+runs/*/*.gd.uid
+runs/*/assets/*.import
+evidence/

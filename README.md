@@ -100,3 +100,7 @@ See the [current repair and evidence record](docs/practical-validation-2026-11-0
 ## Version 0.4.0
 
 The [2D example](assets/canvas-impact.html) now exports impact, ribbon slash and looping embers with configurable resolution, frame count and duration. A [Godot 4.4.1 native project](examples/godot-sheet/README.md) imports all three; 16 native checks passed. Default Canvas checks (25), configurable exports (18), local event tests (13) and rendered replay (11) passed. These are example checks, not general engine support or proof of style quality. The recorded small atlases contain 0.75–1 MiB of RGBA8 pixels versus the default 20 MiB; actual GPU memory and equal perceived quality were not measured.
+
+[2026-11-06 review follow-up / v0.4.1](docs/review-followup-2026-11-06.md): input validation, bounded events, atomic Godot import, timing checks and non-color state cues.
+
+[Paired comparison and score tables / 2026-11-06](docs/comparison-2026-11-06.md): 12 sessions; both conditions passed 90/90 functional checks. The single blinded style review preferred the baseline; no general skill advantage was established.

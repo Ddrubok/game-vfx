@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createServer } from 'node:http';
+import { replayHandler } from './server.mjs';
 import assert from 'node:assert/strict';
 
 const dir = path.dirname(fileURLToPath(import.meta.url)), root = path.resolve(dir, '../..');
@@ -10,16 +11,7 @@ const out = path.resolve(process.argv[2] || path.join(dir, 'output'));
 await mkdir(out, { recursive: true });
 const require = createRequire(path.join(path.resolve(process.env.VFX_TOOL_ROOT || dir), 'package.json'));
 const { chromium } = require('playwright');
-const server = createServer(async (req, res) => {
-  try {
-    const name = path.resolve(root, '.' + decodeURIComponent(new URL(req.url, 'http://localhost').pathname));
-    const relative = path.relative(root, name);
-    if (relative.startsWith('..') || path.isAbsolute(relative)) { res.writeHead(403).end(); return; }
-    const data = await readFile(name);
-    res.setHeader('Content-Type', name.endsWith('.mjs') ? 'text/javascript' : 'text/html');
-    res.end(data);
-  } catch { res.writeHead(404).end(); }
-});
+const server = createServer(await replayHandler(root));
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
 let browser;
 const checks = [], errors = [];
@@ -57,6 +49,16 @@ try {
   check('Real-time replay advances and renders', await pixels() > 0);
   await page.waitForTimeout(850);
   check('Real-time replay finishes', await pixels() === 0 && await page.evaluate(() => demo.owner.active.size === 0));
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.evaluate(() => { demo.reset(); demo.send(); demo.step(.1); });
+  const alphaMask = () => page.evaluate(() => [...document.querySelector('#scene').getContext('2d').getImageData(0, 0, 512, 512).data].filter((n, i) => i % 4 === 3).join(','));
+  const pendingMask = await alphaMask();
+  await page.screenshot({ path: path.join(out, 'pending-reduced.png'), fullPage: true });
+  check('Pending state has text label', (await page.locator('#status').textContent()).includes('pending 1'));
+  await page.evaluate(() => { demo.send({ revision: 2, state: 'confirmed' }); demo.render(); });
+  check('Reduced motion states differ without color', pendingMask !== await alphaMask());
+  check('Confirmed state has text label', (await page.locator('#status').textContent()).includes('confirmed 1'));
+  await page.screenshot({ path: path.join(out, 'confirmed-reduced.png'), fullPage: true });
   check('No browser script errors', errors.length === 0);
   const result = { date: new Date().toISOString(), browser: browser.version(), scope: 'Synthetic event adapter rendered through the Canvas example; not server, engine, player or skill-behavior evaluation', checks, errors };
   await writeFile(path.join(out, 'validation.json'), JSON.stringify(result, null, 2) + '\n');

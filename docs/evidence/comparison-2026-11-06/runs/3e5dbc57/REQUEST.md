@@ -1,0 +1,3 @@
+Adapt the existing pending/confirmed effect for reduced motion. Both states must remain distinguishable without color: pending is provisional, confirmed communicates success. With reducedMotion=true, remove expansion/translation/pulsing while retaining a static meaningful cue throughout the 0.8s lifetime. Normal motion may remain. Keep transparent background and lifecycle, no success cue for pending.
+
+Visual API when relevant: drawEffect(ctx,timeSeconds,options) on transparent 256x256 canvas; options={state,reducedMotion}. Export numeric duration and boolean loop. Do not modify preview.html. Write a concise result.json with actual checks, remaining limits, files read, and number of revisions. Only local work; no commits or network dependencies.

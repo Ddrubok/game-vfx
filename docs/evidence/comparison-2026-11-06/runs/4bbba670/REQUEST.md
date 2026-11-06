@@ -1,0 +1,3 @@
+Recolor the existing hit effect to teal #55bbaa. Preserve geometry, timing, alpha, and deterministic output exactly. Keep the same public API. Inspect the result; do not redesign.
+
+Visual API when relevant: drawEffect(ctx,timeSeconds,options) on transparent 256x256 canvas; options={state,reducedMotion}. Export numeric duration and boolean loop. Do not modify preview.html. Write a concise result.json with actual checks, remaining limits, files read, and number of revisions. Only local work; no commits or network dependencies.

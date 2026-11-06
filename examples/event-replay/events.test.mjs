@@ -95,3 +95,39 @@ test('invalid lifetime, time, revision or position is rejected', () => {
   assert.throws(() => p.receive(event({ point: { x: NaN, y: 0 } })));
   assert.throws(() => p.nextRound('round-1'));
 });
+
+test('identity types and lengths fail before mutation, including round changes', () => {
+  const p = new ImpactEvents();
+  for (const id of [{ id: 'same' }, [], '', ' ', 'x'.repeat(129), NaN, Infinity, 1.5, null]) {
+    assert.throws(() => p.receive(event({ id })), TypeError);
+    assert.throws(() => p.receive(event({ round: id })), TypeError);
+    assert.throws(() => p.nextRound(id));
+    assert.throws(() => new ImpactEvents({ round: id }));
+  }
+  assert.equal(p.history.size, 0); assert.equal(p.active.size, 0); assert.equal(p.bursts, 0);
+  p.receive(event({ id: 0 })); p.receive(event({ id: '0' }));
+  assert.equal(p.active.size, 2);
+});
+test('capacity drops visuals without evicting duplicate protection', () => {
+  const p = new ImpactEvents({ maxActive: 1, maxHistory: 2 });
+  p.receive(event({ id: 'a' })); p.receive(event({ id: 'b' }));
+  assert.equal(p.active.size, 1); assert.equal(p.history.size, 2); assert.equal(p.bursts, 1);
+  p.advance(1);
+  assert.equal(p.receive(event({ id: 'b', revision: 99 })), false);
+  assert.equal(p.receive(event({ id: 'a', revision: 99 })), false);
+  for (let id = 0; id < 100000; id++) p.receive(event({ id }));
+  assert.equal(p.history.size, 2); assert.equal(p.active.size, 0);
+  p.nextRound('round-2');
+  assert.equal(p.receive(event({ round: 'round-2' })), true);
+});
+test('capacity options reject invalid allocations', () => {
+  for (const maxActive of [0, -1, 1.5, Infinity, 4097]) assert.throws(() => new ImpactEvents({ maxActive }));
+  for (const maxHistory of [0, -1, 1.5, Infinity]) assert.throws(() => new ImpactEvents({ maxHistory }));
+});
+test('closed lifetime deliberately suppresses late confirmation and keeps near-expiry promotion short', () => {
+  const p = new ImpactEvents(); p.receive(event({ state: 'pending' })); p.advance(.81);
+  assert.equal(p.receive(event({ revision: 2 })), false); assert.equal(p.bursts, 0);
+  const q = new ImpactEvents(); q.receive(event({ state: 'pending' })); q.advance(.79);
+  assert.equal(q.receive(event({ revision: 2 })), true); q.advance(.01);
+  assert.equal(q.active.size, 0); assert.equal(q.bursts, 1);
+});

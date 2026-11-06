@@ -1,0 +1,204 @@
+{
+  "created": "2026-11-06T04:34:01.760Z",
+  "model": "gpt-6-sol",
+  "reasoning": "medium",
+  "runs": [
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Use this guidance: create the requested effect, preserve game rules, inspect the output. Do not load game-vfx or other skills. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "80f43909",
+      "task": "recolor"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Use this guidance: create the requested effect, preserve game rules, inspect the output. Do not load game-vfx or other skills. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "72f977d6",
+      "task": "events"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Apply the complete game-vfx skill at ./skill/SKILL.md, loading its references conditionally. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "24228d48",
+      "task": "loop"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Apply the complete game-vfx skill at ./skill/SKILL.md, loading its references conditionally. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "4bbba670",
+      "task": "recolor"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Use this guidance: create the requested effect, preserve game rules, inspect the output. Do not load game-vfx or other skills. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "fae1cf90",
+      "task": "style"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Use this guidance: create the requested effect, preserve game rules, inspect the output. Do not load game-vfx or other skills. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "a17eadca",
+      "task": "reduced"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Apply the complete game-vfx skill at ./skill/SKILL.md, loading its references conditionally. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "3e5dbc57",
+      "task": "reduced"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Apply the complete game-vfx skill at ./skill/SKILL.md, loading its references conditionally. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "72754f9d",
+      "task": "style"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Use this guidance: create the requested effect, preserve game rules, inspect the output. Do not load game-vfx or other skills. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "a6acd667",
+      "task": "godot"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Apply the complete game-vfx skill at ./skill/SKILL.md, loading its references conditionally. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "86d4df44",
+      "task": "godot"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Apply the complete game-vfx skill at ./skill/SKILL.md, loading its references conditionally. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "8c3d3cb5",
+      "task": "events"
+    },
+    {
+      "worker": "sol",
+      "prompt": "Complete the user request in REQUEST.md in your current directory. This is an isolated evaluation; do not read sibling directories, the source repository, prior evaluation conclusions, or installed skills. Do not delegate. You exclusively own this run directory except REQUEST.md, preview.html and skill/ which are read-only. Use this guidance: create the requested effect, preserve game rules, inspect the output. Do not load game-vfx or other skills. Keep implementation effort to approximately four minutes, then report partial/unverified items honestly. Same tools for both conditions: Node; Playwright at <PLAYWRIGHT_MODULE>; Godot executable <GODOT_EXECUTABLE>. Use existing dependencies only. Do the work now, not a plan. Write result.json and final summary.",
+      "label": "bb21dd87",
+      "task": "loop"
+    }
+  ],
+  "mapping": [
+    {
+      "label": "80f43909",
+      "task": "recolor",
+      "condition": "baseline",
+      "kind": "visual",
+      "source": "example adaptation"
+    },
+    {
+      "label": "4bbba670",
+      "task": "recolor",
+      "condition": "full",
+      "kind": "visual",
+      "source": "example adaptation"
+    },
+    {
+      "label": "fae1cf90",
+      "task": "style",
+      "condition": "baseline",
+      "kind": "visual",
+      "source": "unseen synthetic scene"
+    },
+    {
+      "label": "72754f9d",
+      "task": "style",
+      "condition": "full",
+      "kind": "visual",
+      "source": "unseen synthetic scene"
+    },
+    {
+      "label": "bb21dd87",
+      "task": "loop",
+      "condition": "baseline",
+      "kind": "visual",
+      "source": "unseen synthetic request"
+    },
+    {
+      "label": "24228d48",
+      "task": "loop",
+      "condition": "full",
+      "kind": "visual",
+      "source": "unseen synthetic request"
+    },
+    {
+      "label": "a17eadca",
+      "task": "reduced",
+      "condition": "baseline",
+      "kind": "visual",
+      "source": "example adaptation"
+    },
+    {
+      "label": "3e5dbc57",
+      "task": "reduced",
+      "condition": "full",
+      "kind": "visual",
+      "source": "example adaptation"
+    },
+    {
+      "label": "a6acd667",
+      "task": "godot",
+      "condition": "baseline",
+      "kind": "godot",
+      "source": "example adapter"
+    },
+    {
+      "label": "86d4df44",
+      "task": "godot",
+      "condition": "full",
+      "kind": "godot",
+      "source": "example adapter"
+    },
+    {
+      "label": "72f977d6",
+      "task": "events",
+      "condition": "baseline",
+      "kind": "events",
+      "source": "unseen transport contract"
+    },
+    {
+      "label": "8c3d3cb5",
+      "task": "events",
+      "condition": "full",
+      "kind": "events",
+      "source": "unseen transport contract"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "recolor",
+      "kind": "visual",
+      "source": "example adaptation",
+      "request": "Recolor the existing hit effect to teal #55bbaa. Preserve geometry, timing, alpha, and deterministic output exactly. Keep the same public API. Inspect the result; do not redesign."
+    },
+    {
+      "id": "style",
+      "kind": "visual",
+      "source": "unseen synthetic scene",
+      "request": "Create a 0.6 second impact cue for the supplied paper-garden scene. It marks an authoritative seed landing. Match the scene: flat ink outlines, muted sage/ochre, asymmetric leaf shards, no neon/glow/white flash/camera shake. At 64px display size it should read as a brief landing puff, not a radial sci-fi ring. Keep transparent background and finish cleanly. Reuse the drawEffect API, export duration=0.6 and loop=false."
+    },
+    {
+      "id": "loop",
+      "kind": "visual",
+      "source": "unseen synthetic request",
+      "request": "Replace the one-shot with a seamless 1.2 second ambient ember loop using the same drawEffect API (duration=1.2, loop=true). Use five softly rising ochre embers on transparent background, bounded inside 256x256. The loop seam must be continuous, seeking deterministic; it must stay active after several periods. Reduced motion must show a stable static cue."
+    },
+    {
+      "id": "reduced",
+      "kind": "visual",
+      "source": "example adaptation",
+      "request": "Adapt the existing pending/confirmed effect for reduced motion. Both states must remain distinguishable without color: pending is provisional, confirmed communicates success. With reducedMotion=true, remove expansion/translation/pulsing while retaining a static meaningful cue throughout the 0.8s lifetime. Normal motion may remain. Keep transparent background and lifecycle, no success cue for pending."
+    },
+    {
+      "id": "godot",
+      "kind": "godot",
+      "source": "example adapter",
+      "request": "Harden sheet_effect.gd for local JSON edited by artists. Keep valid impact/slash/embers imports, timing, loop and pivot. Reject malformed structures, wrong numeric types, missing keys, absurd/nonfinite pivots and duration mismatches by returning false without script errors. A failed reconfigure must preserve the previously configured resource, offset, duration, loop and ongoing playback. Set a documented pivot contract. Modify only sheet_effect.gd; add your own checks if useful. Use installed Godot for actual verification."
+    },
+    {
+      "id": "events",
+      "kind": "events",
+      "source": "unseen transport contract",
+      "request": "Adapt ImpactEvents in event-impact.mjs to this game contract: pending display expires after 0.8s; the first authoritative confirmation arriving even after preview expiry MUST display a fresh full 0.8s confirmed phase exactly once. Subsequent confirmed corrections move the cue without restarting it or bursting again. Rejection, finish of a confirmed phase, disposal and round change are terminal. A completion token captured during pending must not close its confirmed replacement. Retain deduplication until round teardown. Validate IDs/rounds (nonempty strings <=128 chars or safe integers), revisions, coordinates before mutation. Bound active/history resources with configurable maxActive/maxHistory, defaults128/4096; on saturation omit new visuals without evicting old deduplication records. Preserve gameplay authority; this adapter owns only presentation. Keep public methods receive, advance, snapshot, completionToken, finish, nextRound, dispose and public active/history/bursts."
+    }
+  ],
+  "limits": "One run per arm/task. Shared host, instruction-based file isolation. Not statistically powered or a human preference study."
+}

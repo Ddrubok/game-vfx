@@ -1,0 +1,18 @@
+[
+  {
+    "label": "fae1cf90",
+    "task": "style",
+    "condition": "baseline",
+    "kind": "visual",
+    "source": "unseen synthetic scene",
+    "reviewerLabel": "A"
+  },
+  {
+    "label": "72754f9d",
+    "task": "style",
+    "condition": "full",
+    "kind": "visual",
+    "source": "unseen synthetic scene",
+    "reviewerLabel": "B"
+  }
+]

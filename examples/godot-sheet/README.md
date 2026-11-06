@@ -22,9 +22,11 @@ The import command is nonvisual. The third command renders, saves `results.json`
 
 ## Contract and limits / 동작과 한계
 
+Current v0.4.1 rejects 24 malformed metadata cases while preserving live configuration. Timing checks three warmed trials per one-shot, metadata duration sums and ordered frames. Tolerance is twice the observed maximum frame interval plus 2 ms; an interval above 25 ms fails separately. Headless results do not establish rendered appearance. The v0.4.0 timing figures below are historical.
+
 - JSON `durationMs` maps to SpriteFrames relative durations at the declared FPS; loop flags and pivot are preserved. Midpoint sample time is distinct from playback time.
 - Finish hides the one-shot; replay restarts; cancellation stops/hides. Removing one owner leaves the other effect alive. No server/correction protocol is included.
-- Warmed native finish signals were **0.582783 / declared 0.6 s** and **0.382836 / declared 0.4 s**. The assertion permits absolute error below **0.10 s**: a coarse regression check, not frame-accurate certification. Another project's 0.75/0.8 s discrepancy remains unexplained.
+- Historical v0.4.0 warmed native finish signals were **0.582783 / declared 0.6 s** and **0.382836 / declared 0.4 s**. The assertion permits absolute error below **0.10 s**: a coarse regression check, not frame-accurate certification. Another project's 0.75/0.8 s discrepancy remains unexplained.
 - Input is trusted bundled-exporter metadata, not hostile arbitrary JSON. Include `*.json` in export filters when packaging; **exported build NOT RUN**.
 - Source-over alpha, 128 px frames. Native particle recreation, Android/iOS, Unity/Unreal, player preference and measured GPU memory are NOT RUN.
 

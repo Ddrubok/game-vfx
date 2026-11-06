@@ -1,0 +1,560 @@
+[
+  {
+    "label": "80f43909",
+    "task": "recolor",
+    "condition": "baseline",
+    "kind": "visual",
+    "source": "example adaptation",
+    "status": "SUCCESS",
+    "elapsedSeconds": 144.972,
+    "usage": {
+      "input_tokens": 315648,
+      "cached_input_tokens": 297216,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4905,
+      "reasoning_output_tokens": 1302
+    },
+    "report": {
+      "summary": "Recolored the hit effect stroke to #55bbaa for all states without changing drawing geometry, timing, alpha, or exports.",
+      "files_read": [
+        "REQUEST.md",
+        "effect.mjs",
+        "preview.html"
+      ],
+      "files_changed": [
+        "effect.mjs"
+      ],
+      "artifacts": [
+        "effect_preview.png",
+        "check.cjs"
+      ],
+      "revisions": 1,
+      "checks": [
+        "Rendered and visually inspected effect_preview.png at 0.15 seconds.",
+        "Playwright compared 24 time/state/reducedMotion cases: 0 alpha mismatches against the original drawing code, 0 pixel mismatches against the original code recolored teal, and 0 deterministic rerender mismatches.",
+        "Confirmed duration=0.8 and loop=false."
+      ],
+      "remaining_limits": [
+        "Pixel checks sample six times, including both duration boundaries; they do not exhaust every continuous time value."
+      ]
+    },
+    "sourceHash": "9364510f64bf3c88edffc98b6e7e7eef535917efd0e9d4094d2b8076cf0f89ad",
+    "commandCount": 7,
+    "failedCommandCount": 2,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "4bbba670",
+    "task": "recolor",
+    "condition": "full",
+    "kind": "visual",
+    "source": "example adaptation",
+    "status": "SUCCESS",
+    "elapsedSeconds": 162.379,
+    "usage": {
+      "input_tokens": 500668,
+      "cached_input_tokens": 488704,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4814,
+      "reasoning_output_tokens": 1249
+    },
+    "report": {
+      "summary": "Recolored the existing hit effect to #55bbaa with one source revision.",
+      "filesRead": [
+        "REQUEST.md",
+        "effect.mjs",
+        "preview.html",
+        "skill/SKILL.md",
+        "skill/references/implementation-and-export.md",
+        "skill/references/visual-validation.md"
+      ],
+      "filesChanged": [
+        "effect.mjs"
+      ],
+      "checkArtifacts": [
+        "check.cjs",
+        "baseline.json",
+        "inspection.png"
+      ],
+      "revisions": 1,
+      "checks": [
+        "Playwright rendered original and final effect at 0, 0.15, 0.4, 0.79, and 0.8 seconds for pending and confirmed states; every alpha byte matched.",
+        "Duration remained 0.8 and loop remained false; peak rendered color matched #55bbaa within Canvas alpha rounding.",
+        "Two repeated renders at 0.15 seconds produced identical RGBA pixels.",
+        "Opened final preview screenshot and visually inspected teal ring and rays."
+      ],
+      "remainingLimits": [
+        "No in-game integration or real-time playback was requested or tested."
+      ]
+    },
+    "sourceHash": "9364510f64bf3c88edffc98b6e7e7eef535917efd0e9d4094d2b8076cf0f89ad",
+    "commandCount": 8,
+    "failedCommandCount": 2,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "fae1cf90",
+    "task": "style",
+    "condition": "baseline",
+    "kind": "visual",
+    "source": "unseen synthetic scene",
+    "status": "SUCCESS",
+    "elapsedSeconds": 136.011,
+    "usage": {
+      "input_tokens": 309386,
+      "cached_input_tokens": 302848,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5651,
+      "reasoning_output_tokens": 889
+    },
+    "report": {
+      "summary": "Created a 0.6-second paper-garden seed landing cue: a low sage dust puff, three asymmetric leaf shards, and short ink ground marks.",
+      "files_read": [
+        "REQUEST.md",
+        "preview.html",
+        "effect.mjs"
+      ],
+      "files_written": [
+        "effect.mjs",
+        "inspection.png",
+        "result.json"
+      ],
+      "revisions": 1,
+      "checks": [
+        "node --check effect.mjs passed",
+        "Rendered frames at 0.08, 0.17, 0.30, 0.48, and 0.60 seconds in Chromium via Playwright and visually inspected inspection.png, including 64px views",
+        "Transparent canvas pixel count at 0.60 seconds was zero"
+      ],
+      "remaining_limits": []
+    },
+    "sourceHash": "f509e6b6866ad5eb605895e0c4ae601caa54aebb2f65699173e80b14e681c273",
+    "commandCount": 7,
+    "failedCommandCount": 1,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "72754f9d",
+    "task": "style",
+    "condition": "full",
+    "kind": "visual",
+    "source": "unseen synthetic scene",
+    "status": "SUCCESS",
+    "elapsedSeconds": 209.664,
+    "usage": {
+      "input_tokens": 595052,
+      "cached_input_tokens": 564608,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7661,
+      "reasoning_output_tokens": 1258
+    },
+    "report": {
+      "summary": "Created a 0.6-second transparent seed-landing puff with flat ink outlines, muted paper and sage colors, asymmetric leaf chips, and no ring or glow.",
+      "deliverable": "effect.mjs",
+      "reference": "preview.html paper-garden SVG",
+      "files_read": [
+        "REQUEST.md",
+        "preview.html",
+        "effect.mjs",
+        "skill/SKILL.md",
+        "skill/references/style-and-handoff.md",
+        "skill/references/implementation-and-export.md",
+        "skill/references/visual-validation.md"
+      ],
+      "revisions": 1,
+      "checks": [
+        "node --check effect.mjs passed",
+        "Playwright rendered final source at 64px samples; contact.png opened and inspected",
+        "duration=0.6 and loop=false confirmed",
+        "Canvas corners transparent; reducedMotion rendered",
+        "0.59s and 0.6s samples fully transparent"
+      ],
+      "remaining_limits": [
+        "Real-time playback was not watched; timing judgment uses ordered stills.",
+        "Standalone Canvas effect was not integrated into a game event."
+      ]
+    },
+    "sourceHash": "3de665ffbab03fd0bd66dc5c681b7169940dcc692eac4c6f535df4fd9807fc43",
+    "commandCount": 13,
+    "failedCommandCount": 0,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "bb21dd87",
+    "task": "loop",
+    "condition": "baseline",
+    "kind": "visual",
+    "source": "unseen synthetic request",
+    "status": "SUCCESS",
+    "elapsedSeconds": 141.287,
+    "usage": {
+      "input_tokens": 343288,
+      "cached_input_tokens": 332032,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6341,
+      "reasoning_output_tokens": 986
+    },
+    "report": {
+      "status": "complete",
+      "files_read": [
+        "REQUEST.md",
+        "effect.mjs",
+        "preview.html"
+      ],
+      "files_changed": [
+        "effect.mjs",
+        "check.mjs",
+        "preview-ember.png",
+        "result.json"
+      ],
+      "revisions": 1,
+      "checks": {
+        "playwright": "Passed: duration 1.2, loop true, exact 0/1.2 seam, matching frame after ten periods, deterministic repeated seek, static reduced motion, visible after ten periods, and no visible pixels outside the ember area.",
+        "visual": "Inspected preview-ember.png; five small ochre embers with soft glow on the fixture background."
+      },
+      "remaining_limits": [
+        "Near-seam motion continuity was assessed by construction and exact endpoint comparison, without a frame-by-frame animation capture."
+      ]
+    },
+    "sourceHash": "fb8168d86fe9696054944cf3059ecfd70826979a6ec614ad45057f2045e9108f",
+    "commandCount": 6,
+    "failedCommandCount": 1,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "24228d48",
+    "task": "loop",
+    "condition": "full",
+    "kind": "visual",
+    "source": "unseen synthetic request",
+    "status": "SUCCESS",
+    "elapsedSeconds": 152.759,
+    "usage": {
+      "input_tokens": 442363,
+      "cached_input_tokens": 423936,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6160,
+      "reasoning_output_tokens": 1773
+    },
+    "report": {
+      "summary": "Replaced the one-shot ring with five soft ochre embers in a deterministic 1.2-second loop. Reduced motion draws a stable static cue.",
+      "files_changed": [
+        "effect.mjs",
+        "verify.cjs",
+        "preview-check.png",
+        "result.json"
+      ],
+      "files_read": [
+        "REQUEST.md",
+        "preview.html",
+        "effect.mjs",
+        "skill/SKILL.md",
+        "skill/references/implementation-and-export.md",
+        "skill/references/visual-validation.md",
+        "skill/references/style-and-handoff.md",
+        "<HOST_RTK_INSTRUCTIONS>"
+      ],
+      "revisions": 1,
+      "checks": [
+        "node --check effect.mjs passed",
+        "Playwright rendered the local preview at 256x256; opened preview-check.png and inspected the ochre embers against the paper-garden fixture",
+        "At t=0 and t=1.2, RGBA pixels match exactly; t=3.6 also matches t=0 exactly and remains visible",
+        "Across t=1.1999 and t=1.2001, maximum alpha difference was 14/255; visible pixels stayed within x=84..159 and y=87..201 in tested samples",
+        "Reduced-motion RGBA pixels match exactly at t=0.1 and t=7.9"
+      ],
+      "remaining_limits": [
+        "Real-time playback was not viewed; in-game integration and target-device performance were not tested."
+      ]
+    },
+    "sourceHash": "453bb199693e30aa7b475ba587e23847c0a33132b27c32a9b5a3523816f80502",
+    "commandCount": 7,
+    "failedCommandCount": 0,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "a17eadca",
+    "task": "reduced",
+    "condition": "baseline",
+    "kind": "visual",
+    "source": "example adaptation",
+    "status": "SUCCESS",
+    "elapsedSeconds": 156.451,
+    "usage": {
+      "input_tokens": 336285,
+      "cached_input_tokens": 324352,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6341,
+      "reasoning_output_tokens": 1054
+    },
+    "report": {
+      "summary": "Pending uses a dashed ring and three dots; confirmed uses a solid ring and check. Reduced motion keeps each cue static for the full 0.8 seconds.",
+      "files_read": [
+        "REQUEST.md",
+        "preview.html",
+        "effect.mjs"
+      ],
+      "files_changed": [
+        "effect.mjs",
+        "result.json"
+      ],
+      "revisions": 1,
+      "checks": [
+        "Rendered pending and confirmed in Chromium with Playwright and visually inspected both screenshots.",
+        "Pixel check: reduced-motion pending was identical at 0, 0.4, and 0.799 seconds.",
+        "Pixel check: pending and confirmed differed in grayscale; 0.8-second frame was empty; transparent canvas corner stayed clear.",
+        "Confirmed normal-motion rendering differed from reduced-motion rendering; duration=0.8 and loop=false."
+      ],
+      "remaining_limits": []
+    },
+    "sourceHash": "6d9337116829c91dc6f33e3ece4a9d4365c0b0e8280212d56acd4d198a6bce15",
+    "commandCount": 9,
+    "failedCommandCount": 5,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "3e5dbc57",
+    "task": "reduced",
+    "condition": "full",
+    "kind": "visual",
+    "source": "example adaptation",
+    "status": "SUCCESS",
+    "elapsedSeconds": 139.279,
+    "usage": {
+      "input_tokens": 343197,
+      "cached_input_tokens": 332672,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6233,
+      "reasoning_output_tokens": 1375
+    },
+    "report": {
+      "summary": "Pending uses a dashed ring with three dots; confirmed uses a solid ring with a checkmark. Reduced motion holds each cue static for the 0.8-second lifetime.",
+      "filesRead": [
+        "REQUEST.md",
+        "preview.html",
+        "effect.mjs",
+        "skill/SKILL.md",
+        "skill/references/implementation-and-export.md",
+        "skill/references/visual-validation.md"
+      ],
+      "filesChanged": [
+        "effect.mjs",
+        "result.json"
+      ],
+      "inspectionCaptures": [
+        "pending-inspection.png",
+        "confirmed-inspection.png"
+      ],
+      "revisions": 1,
+      "checks": [
+        "node --check effect.mjs passed",
+        "Playwright rendered both reduced-motion states at 0, 0.4, and 0.799 seconds; pixels stayed identical within each state",
+        "Both states were visible, had transparent corners, and cleared at 0.8 seconds",
+        "Pending and confirmed alpha masks differed, so their silhouettes remain distinct without color",
+        "Normal-motion frames at 0.1 and 0.6 seconds differed",
+        "Opened and visually inspected PNG captures of both reduced-motion states"
+      ],
+      "remainingLimits": [
+        "Real-time playback feel was not viewed",
+        "No game scene or target-device integration was available to test"
+      ]
+    },
+    "sourceHash": "e368bcb313b2a7823a27e8879275696f576717854e87bd7eed0366edd997e289",
+    "commandCount": 12,
+    "failedCommandCount": 1,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "a6acd667",
+    "task": "godot",
+    "condition": "baseline",
+    "kind": "godot",
+    "source": "example adapter",
+    "status": "SUCCESS",
+    "elapsedSeconds": 199.728,
+    "usage": {
+      "input_tokens": 438128,
+      "cached_input_tokens": 427392,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8910,
+      "reasoning_output_tokens": 1941
+    },
+    "report": {
+      "files_read": [
+        "REQUEST.md",
+        "sheet_effect.gd",
+        "main.gd",
+        "project.godot",
+        "assets/impact.json",
+        "assets/embers.json"
+      ],
+      "files_modified": [
+        "sheet_effect.gd",
+        "result.json"
+      ],
+      "revisions": 2,
+      "checks": [
+        "Godot 4.7.1 headless editor import succeeded",
+        "Godot 4.7.1 headless scene: 16/16 playback and lifecycle checks passed for impact, slash, embers",
+        "Godot 4.7.1 malformed JSON harness: 10/10 invalid cases rejected; resource, offset, duration, loop and active playback preserved"
+      ],
+      "remaining_limits": [
+        "Headless verification did not inspect rendered pixels or GPU output",
+        "Malformed-case harness covered representative inputs, not every possible JSON number or structure"
+      ]
+    },
+    "sourceHash": "4abd55d7ac19dba7dd1fce8ed0a34668e808a89bbac5891a5fa7ded047290be2",
+    "commandCount": 10,
+    "failedCommandCount": 2,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "86d4df44",
+    "task": "godot",
+    "condition": "full",
+    "kind": "godot",
+    "source": "example adapter",
+    "status": "SUCCESS",
+    "elapsedSeconds": 155.96,
+    "usage": {
+      "input_tokens": 506074,
+      "cached_input_tokens": 482944,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6608,
+      "reasoning_output_tokens": 1081
+    },
+    "report": {
+      "status": "complete",
+      "files_changed": [
+        "sheet_effect.gd"
+      ],
+      "files_read": [
+        "REQUEST.md",
+        "skill/SKILL.md",
+        "skill/references/implementation-and-export.md",
+        "skill/references/engine-adapters.md",
+        "sheet_effect.gd",
+        "main.gd",
+        "assets/impact.json",
+        "assets/slash.json",
+        "assets/embers.json"
+      ],
+      "revisions": 2,
+      "checks": [
+        {
+          "name": "Godot 4.7.1 headless editor import",
+          "result": "passed"
+        },
+        {
+          "name": "Godot 4.7.1 headless scene",
+          "result": "16 checks passed; impact, slash, embers import; playback, timing, loop, pause, replay, cancel, owner removal passed"
+        },
+        {
+          "name": "Godot 4.7.1 malformed JSON and state preservation",
+          "result": "10 negative cases rejected; prior resource, offset, duration, loop and playing state preserved"
+        }
+      ],
+      "remaining_limits": [
+        "Headless checks do not verify rendered appearance.",
+        "No packaged export or target-device test."
+      ],
+      "pivot_contract": "pivotPixels is in pixels from each untrimmed frame top-left; all frames share dimensions; coordinates may lie on frame edges."
+    },
+    "sourceHash": "4c5d24e6ffacf3cca5cae1172ef2e9a01ee8e0bce57f89d31f1c44bf5a72ff9b",
+    "commandCount": 7,
+    "failedCommandCount": 0,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "72f977d6",
+    "task": "events",
+    "condition": "baseline",
+    "kind": "events",
+    "source": "unseen transport contract",
+    "status": "SUCCESS",
+    "elapsedSeconds": 171.886,
+    "usage": {
+      "input_tokens": 446540,
+      "cached_input_tokens": 419328,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7609,
+      "reasoning_output_tokens": 1634
+    },
+    "report": {
+      "files_read": [
+        "REQUEST.md",
+        "event-impact.mjs"
+      ],
+      "files_changed": [
+        "event-impact.mjs",
+        "check.mjs",
+        "result.json"
+      ],
+      "revisions": 3,
+      "checks": [
+        "node check.mjs: passed lifecycle, late confirmation, stale token, correction timing, terminal states, resource caps, validation, round and disposal assertions"
+      ],
+      "remaining_limits": [
+        "No canvas renderer was present; this task changed the presentation event adapter only."
+      ]
+    },
+    "sourceHash": "3ba76574ff4ed03c1e063cddd3ce3f65b9d1ce1f68f1393aa817dc33b6da4541",
+    "commandCount": 7,
+    "failedCommandCount": 3,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  },
+  {
+    "label": "8c3d3cb5",
+    "task": "events",
+    "condition": "full",
+    "kind": "events",
+    "source": "unseen transport contract",
+    "status": "SUCCESS",
+    "elapsedSeconds": 163.919,
+    "usage": {
+      "input_tokens": 361267,
+      "cached_input_tokens": 349952,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7673,
+      "reasoning_output_tokens": 1417
+    },
+    "report": {
+      "status": "implemented",
+      "filesChanged": [
+        "event-impact.mjs",
+        "result.json"
+      ],
+      "filesRead": [
+        "REQUEST.md",
+        "skill/SKILL.md",
+        "event-impact.mjs",
+        "skill/references/event-integration.md",
+        "skill/references/implementation-and-export.md",
+        "skill/references/visual-validation.md"
+      ],
+      "revisions": 2,
+      "checks": [
+        "node --check event-impact.mjs: passed",
+        "Node assertions: pending expiry, late and early confirmation, full confirmed lifetime, correction without restart or burst, stale tokens, terminal states, round teardown, capacity, validation and pause: passed"
+      ],
+      "remainingLimits": [
+        "Synthetic adapter checks only; no game integration or rendered visual playback was available in this run.",
+        "Visual drawEffect API is not applicable to this event-state adapter."
+      ]
+    },
+    "sourceHash": "f35015c179434c9673a65ff31d1dd30716caf073bc9f2bc4462eac4caf8759f0",
+    "commandCount": 7,
+    "failedCommandCount": 1,
+    "hostMcpConnectionErrors": true,
+    "publicationNote": "Raw shell commands and host logs omitted; full originals retained locally."
+  }
+]

@@ -1,0 +1,199 @@
+[
+  {
+    "label": "80f43909",
+    "task": "recolor",
+    "condition": "baseline",
+    "kind": "visual",
+    "source": "example adaptation",
+    "checks": [
+      {
+        "name": "visible",
+        "pass": true
+      },
+      {
+        "name": "deterministic",
+        "pass": true
+      },
+      {
+        "name": "ends transparent",
+        "pass": true
+      },
+      {
+        "name": "duration preserved",
+        "pass": true
+      },
+      {
+        "name": "geometry/alpha preserved",
+        "pass": true
+      },
+      {
+        "name": "requested teal",
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "duration": 0.8,
+      "loop": false,
+      "visible": true,
+      "deterministic": true,
+      "ends": true,
+      "alphaPreserved": true,
+      "tealRatio": 1
+    }
+  },
+  {
+    "label": "4bbba670",
+    "task": "recolor",
+    "condition": "full",
+    "kind": "visual",
+    "source": "example adaptation",
+    "checks": [
+      {
+        "name": "visible",
+        "pass": true
+      },
+      {
+        "name": "deterministic",
+        "pass": true
+      },
+      {
+        "name": "ends transparent",
+        "pass": true
+      },
+      {
+        "name": "duration preserved",
+        "pass": true
+      },
+      {
+        "name": "geometry/alpha preserved",
+        "pass": true
+      },
+      {
+        "name": "requested teal",
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "duration": 0.8,
+      "loop": false,
+      "visible": true,
+      "deterministic": true,
+      "ends": true,
+      "alphaPreserved": true,
+      "tealRatio": 1
+    }
+  },
+  {
+    "label": "24228d48",
+    "task": "loop",
+    "condition": "full",
+    "kind": "visual",
+    "source": "unseen synthetic request",
+    "checks": [
+      {
+        "name": "visible",
+        "pass": true
+      },
+      {
+        "name": "deterministic",
+        "pass": true
+      },
+      {
+        "name": "loop contract",
+        "pass": true
+      },
+      {
+        "name": "seam mean difference <1",
+        "pass": true
+      },
+      {
+        "name": "period repeat",
+        "pass": true
+      },
+      {
+        "name": "later visible",
+        "pass": true
+      },
+      {
+        "name": "static reduced motion",
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "duration": 1.2,
+      "loop": true,
+      "visible": true,
+      "deterministic": true,
+      "ends": false,
+      "seamMean": 0.22759246826171875,
+      "periodic": true,
+      "laterVisible": true,
+      "staticReduced": true
+    }
+  },
+  {
+    "label": "72f977d6",
+    "task": "events",
+    "condition": "baseline",
+    "kind": "events",
+    "source": "unseen transport contract",
+    "checks": [
+      {
+        "name": "late confirmation displays",
+        "pass": true
+      },
+      {
+        "name": "late phase starts at zero",
+        "pass": true
+      },
+      {
+        "name": "old pending token cannot finish confirmed",
+        "pass": true
+      },
+      {
+        "name": "correction retains age and one burst",
+        "pass": false
+      },
+      {
+        "name": "confirmed completes",
+        "pass": true
+      },
+      {
+        "name": "finished cannot revive",
+        "pass": true
+      },
+      {
+        "name": "near expiry confirmation retains full phase",
+        "pass": true
+      },
+      {
+        "name": "reject terminal",
+        "pass": true
+      },
+      {
+        "name": "old round callback rejected",
+        "pass": true
+      },
+      {
+        "name": "disposed stays closed",
+        "pass": true
+      },
+      {
+        "name": "invalid IDs before mutation",
+        "pass": true
+      },
+      {
+        "name": "resources bounded",
+        "pass": true
+      },
+      {
+        "name": "capacity does not replay old ID",
+        "pass": true
+      }
+    ],
+    "errors": []
+  }
+]

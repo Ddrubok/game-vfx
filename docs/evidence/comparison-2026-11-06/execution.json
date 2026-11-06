@@ -1,0 +1,98 @@
+[
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "80f43909",
+    "task": "recolor",
+    "elapsedSeconds": 144.972
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "24228d48",
+    "task": "loop",
+    "elapsedSeconds": 152.759
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "4bbba670",
+    "task": "recolor",
+    "elapsedSeconds": 162.379
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "72f977d6",
+    "task": "events",
+    "elapsedSeconds": 171.886
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "fae1cf90",
+    "task": "style",
+    "elapsedSeconds": 136.011
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "3e5dbc57",
+    "task": "reduced",
+    "elapsedSeconds": 139.279
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "a17eadca",
+    "task": "reduced",
+    "elapsedSeconds": 156.451
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "72754f9d",
+    "task": "style",
+    "elapsedSeconds": 209.664
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "86d4df44",
+    "task": "godot",
+    "elapsedSeconds": 155.96
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "8c3d3cb5",
+    "task": "events",
+    "elapsedSeconds": 163.919
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "a6acd667",
+    "task": "godot",
+    "elapsedSeconds": 199.728
+  },
+  {
+    "worker": "sol",
+    "model": "gpt-6-sol",
+    "status": "SUCCESS",
+    "label": "bb21dd87",
+    "task": "loop",
+    "elapsedSeconds": 141.287
+  }
+]

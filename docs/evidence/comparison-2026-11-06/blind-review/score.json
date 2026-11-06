@@ -1,0 +1,33 @@
+{
+  "scale": "1 (poor) to 5 (excellent)",
+  "scores": {
+    "A": {
+      "style_fit_to_reference": 4,
+      "silhouette_readability_at_64px": 4,
+      "brief_compliance": 4,
+      "reasons": [
+        "The muted sage fill and dark, flat outline match the reference's paper-garden palette and ink treatment.",
+        "A scalloped, connected shape reads as one landing puff, with small asymmetric leaf shards around it; this remains recognizable in the 64px capture.",
+        "The 0.5s capture is faint, suggesting a clean fade, though the exact 0.6s endpoint is not shown."
+      ]
+    },
+    "B": {
+      "style_fit_to_reference": 3,
+      "silhouette_readability_at_64px": 3,
+      "brief_compliance": 3,
+      "reasons": [
+        "The ochre ovals, dark outlines, and muted leaf shapes share the reference's palette and flat treatment.",
+        "At 64px, the separate ovals read more like small stones or bubbles than one landing puff; the curved stroke below also suggests a partial ring.",
+        "The leaf placement is fairly regular around the center, weakening the requested asymmetric shard character; the 0.5s capture is faint."
+      ]
+    }
+  },
+  "preference": "A",
+  "preference_reason": "A has the clearer puff silhouette and closer scene fit at the requested display size.",
+  "evidence_limitations": [
+    "These are static captures at 0.1s, 0.3s, and 0.5s, plus one 64px capture; they cannot establish continuous motion or the precise 0.6s finish.",
+    "The captures are composited on the scene background, so source transparency cannot be verified.",
+    "The captures cannot verify drawEffect API reuse, duration=0.6, or loop=false exports.",
+    "This is one visual review, not evidence of general human preference."
+  ]
+}

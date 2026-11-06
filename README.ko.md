@@ -100,3 +100,7 @@ v0.3.0에는 [이벤트 연결 안내](references/event-integration.md)를 추�
 ## v0.4.0 변경
 
 [2D 예제](assets/canvas-impact.html)에서 충격파·베기·반복 불씨를 선택하고 해상도·프레임 수·지속 시간을 조절합니다. [Godot 4.4.1 프로젝트](examples/godot-sheet/README.md)는 세 출력을 가져와 실행하며 네이티브 검사 16개를 통과했습니다. 기본 Canvas 25개, 변형 출력 18개, 로컬 이벤트 13개, 렌더링 재생 11개도 통과했습니다. 예제 검사이며 모든 엔진 지원이나 스타일 품질의 입증은 아닙니다. 작은 시트의 RGBA8 픽셀 데이터는 0.75–1MiB, 기본값은 20MiB입니다. 실제 GPU 메모리나 같은 체감 품질은 측정하지 않았습니다.
+
+[2026-11-06 review follow-up / v0.4.1](docs/review-followup-2026-11-06.md): input validation, bounded events, atomic Godot import, timing checks and non-color state cues.
+
+[Paired comparison and score tables / 2026-11-06](docs/comparison-2026-11-06.md): 12 sessions; both conditions passed 90/90 functional checks. The single blinded style review preferred the baseline; no general skill advantage was established.

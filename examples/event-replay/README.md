@@ -22,3 +22,5 @@ node examples/event-replay/verify.mjs /path/to/output
 The browser checker uses existing Playwright tooling. Set `VFX_TOOL_ROOT` to a directory whose `node_modules` contains Playwright, and optionally `VFX_BROWSER_PATH` to an installed Chromium executable. The normal skill needs neither. No output proves agent adherence, player preference or real engine/network behavior.
 
 브라우저 검사는 기존 Playwright를 사용합니다. `VFX_TOOL_ROOT`는 Playwright가 들어 있는 `node_modules`의 상위 디렉터리, `VFX_BROWSER_PATH`는 선택적으로 지정할 Chromium 실행 파일입니다. 일반 스킬 사용에는 필요하지 않습니다. 이 결과는 에이전트의 지침 준수·사용자 선호·실제 엔진/네트워크 성능을 입증하지 않습니다.
+
+Version 0.4.1 adds bounded IDs, maxActive/maxHistory capacity policy, non-color pending/confirmed shapes, reduced-motion checks, and an allowlisted loopback server with real-path containment. See references/event-integration.md for saturation and late-confirmation tradeoffs. Run `node --test examples/event-replay/*.test.mjs` from the repository root. The server assumes local assets do not change during verification; it is not a public server.
